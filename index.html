@@ -135,6 +135,71 @@ button:focus-visible,a:focus-visible{outline:3px solid var(--cyan);outline-offse
 }
 @media(hover:none){.game:hover{transform:none}.btn:hover{transform:none}}
 
+
+/* NEONPLAY_VISUAL_UPGRADE_V2 */
+:root{--panel:#10162b;--line:#29385d}
+body{isolation:isolate;background-attachment:fixed}
+body:before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.16;background-image:linear-gradient(#42f5ff12 1px,transparent 1px),linear-gradient(90deg,#42f5ff12 1px,transparent 1px);background-size:42px 42px;mask-image:linear-gradient(to bottom,black,transparent 80%)}
+nav{gap:12px;border-bottom-color:#42f5ff2b;box-shadow:0 12px 34px #0002}
+.links a{transition:color .2s,text-shadow .2s}.links a:hover{color:var(--cyan);text-shadow:0 0 14px #42f5ff77}
+.logo{letter-spacing:.08em}
+.hero{position:relative;min-height:410px;gap:36px}
+.hero>div:first-child{position:relative;z-index:1}
+.hero .pill{box-shadow:inset 0 0 16px #42f5ff0d,0 0 22px #42f5ff0b}
+h1{font-size:clamp(3.1rem,7.5vw,6.4rem);line-height:.92;text-shadow:0 7px 35px #42f5ff0c}
+.hero p{max-width:520px}
+.art{min-height:330px;border-radius:28px;background:radial-gradient(ellipse at 50% 45%,#17395a 0,#15182f 42%,#120e23 78%);box-shadow:inset 0 0 75px #42f5ff0d,0 22px 65px #0004}
+.art:before,.art:after{box-shadow:0 0 30px #42f5ff0b}
+.controller{font-size:7rem;text-shadow:0 0 24px #42f5ff66;filter:drop-shadow(0 0 22px #42f5ffbb)}
+.featured{position:relative;display:grid;grid-template-columns:.9fr 1.1fr;gap:28px;align-items:center;overflow:hidden;margin:4px 0 34px;padding:22px;border:1px solid #a879ff55;border-radius:24px;background:linear-gradient(115deg,#101a32e8,#17102be8);box-shadow:0 18px 55px #0003}
+.featured-art{position:relative;min-height:220px;display:grid;place-items:center;overflow:hidden;border:1px solid #42f5ff32;border-radius:18px;background:radial-gradient(circle at 50% 55%,#164d58 0,#10223d 42%,#151128 78%)}
+.featured-orbit{position:absolute;width:210px;height:100px;border:1px solid #42f5ff99;border-radius:50%;transform:rotate(-28deg);box-shadow:0 0 30px #42f5ff12}
+.featured-emoji{font-size:6rem;filter:drop-shadow(0 0 24px #42f5ff88);animation:float 3.4s ease-in-out infinite}
+.featured-label{position:absolute;bottom:12px;left:14px;color:var(--cyan);font:700 .68rem/1.2 ui-monospace,monospace;letter-spacing:.16em}
+.featured-copy h2{font-size:clamp(1.7rem,3.5vw,2.65rem);line-height:1.08;letter-spacing:-.04em;margin:16px 0}
+.featured-copy p{color:var(--muted);line-height:1.75}
+.stats{gap:14px;margin-bottom:38px}
+.stat,.game,.leaderboard-panel,.addpanel,.player-shelf{backdrop-filter:blur(12px);box-shadow:0 12px 32px #0002}
+.stat{position:relative;overflow:hidden;border-color:#42f5ff26;background:linear-gradient(145deg,#121a31cc,#0d1122cc);transition:transform .2s,border-color .2s}
+.stat:before{content:"";position:absolute;inset:0 0 auto;height:2px;background:linear-gradient(90deg,var(--cyan),var(--purple),var(--pink));opacity:.8}
+.stat:hover{transform:translateY(-3px);border-color:#42f5ff66}
+#games{scroll-margin-top:86px}
+#games .head{align-items:center;margin-top:48px}
+#games .head h2{font-size:clamp(1.8rem,4vw,2.5rem)}
+#search{min-width:240px;box-shadow:inset 0 0 0 1px #42f5ff08}
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 20px}
+.filter{border:1px solid #ffffff20;background:#ffffff06;color:var(--muted);border-radius:999px;padding:9px 14px;font-weight:750;cursor:pointer;transition:.18s}
+.filter:hover,.filter.active{color:#06101c;background:linear-gradient(100deg,var(--cyan),#b9a3ff);border-color:transparent;box-shadow:0 0 20px #42f5ff18}
+.grid{gap:18px}
+.game{border-color:#2b3657;background:linear-gradient(160deg,#121a30e8,#0c1020f2);box-shadow:0 12px 28px #0003;transition:transform .22s,border-color .22s,box-shadow .22s}
+.game:hover{transform:translateY(-7px);border-color:#42f5ff99;box-shadow:0 18px 40px #0005,0 0 24px #42f5ff0c}
+.cover{position:relative;height:164px;background-image:radial-gradient(circle at 50% 30%,#42f5ff20,transparent 42%),linear-gradient(135deg,#073c49,#191b44)}
+.cover:after{content:"";position:absolute;inset:auto 0 0;height:48px;background:linear-gradient(transparent,#0d1326aa);pointer-events:none}
+.cover.pinkbg{background-image:radial-gradient(circle at 50% 30%,#ff3bd42b,transparent 45%),linear-gradient(135deg,#48123f,#17163d)}
+.cover.purplebg{background-image:radial-gradient(circle at 50% 30%,#a879ff2b,transparent 45%),linear-gradient(135deg,#28134e,#12314a)}
+.cover.orangebg{background-image:radial-gradient(circle at 50% 30%,#ffad432b,transparent 45%),linear-gradient(135deg,#52270e,#29163f)}
+.cover.greenbg{background-image:radial-gradient(circle at 50% 30%,#20ffc42b,transparent 45%),linear-gradient(135deg,#073b33,#142443)}
+.body{padding:17px}
+.gtitle h3{font-size:1.05rem}
+.tag{white-space:nowrap;background:#42f5ff08}
+.buttons .btn{border-radius:10px}
+.leaderboard-panel,.addpanel{border-color:#42f5ff35;background:linear-gradient(135deg,#10182ee8,#151027e8);border-radius:22px}
+.leaderboard-panel{padding:24px;margin-top:30px}
+.leaderboard-table{border-collapse:separate;border-spacing:0;width:100%;overflow:hidden;border:1px solid #ffffff12;border-radius:12px}
+.leaderboard-table th{background:#42f5ff0d;color:var(--cyan);text-align:left}
+.leaderboard-table th,.leaderboard-table td{padding:11px 13px;border-bottom:1px solid #ffffff0e}
+.leaderboard-table tr:last-child td{border-bottom:0}
+.leaderboard-table tbody tr:hover{background:#42f5ff08}
+input:focus,select:focus{border-color:var(--cyan);box-shadow:0 0 0 3px #42f5ff18}
+.btn{border-radius:12px}
+.btn:focus-visible,button:focus-visible,a:focus-visible{outline:2px solid var(--cyan);outline-offset:3px}
+.player-chip{border:1px solid #42f5ff3d;background:#42f5ff09;color:var(--text);border-radius:999px;padding:9px 13px;cursor:pointer;font-weight:750}
+.player-chip:hover{border-color:var(--cyan);box-shadow:0 0 18px #42f5ff15}
+footer{margin-top:40px}
+@media(max-width:760px){.hero{min-height:0;gap:20px;padding:48px 0 30px}.art{min-height:230px}.featured{grid-template-columns:1fr;gap:18px;padding:16px}.featured-art{min-height:175px}.featured-emoji{font-size:5rem}.stats{margin-bottom:28px}.leaderboard-panel{padding:17px}}
+@media(max-width:520px){nav{flex-wrap:wrap;padding:12px 0}.logo{margin-right:auto}.links{order:3;width:100%;justify-content:space-around;border-top:1px solid #ffffff10;padding-top:9px}.hero{padding-top:35px}.art{min-height:195px}.controller{font-size:5.5rem}.stats{grid-template-columns:repeat(3,minmax(0,1fr))}.stat strong{font-size:1.05rem}.stat span{font-size:.73rem}.cover{height:145px}.featured-copy h2{font-size:1.8rem}#search{min-width:0}.leaderboard-table th,.leaderboard-table td{padding:9px 7px;font-size:.82rem}.player-chip{padding:8px 10px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+
 </style></head><body><div class="wrap">
 <nav><a class="logo" href="#"><b>NEON</b>PLAY<span style="color:var(--pink)">.</span></a><div class="links"><a href="#games">Games</a><a href="#about">About</a><a href="#publish">Hosting</a></div><button class="player-chip" id="profileButton" type="button">👤 Player</button><button class="btn secondary" id="soundToggle" type="button" aria-pressed="false">🔇 Sound Off</button><a class="btn secondary" href="#games">Enter Arcade ↗</a></nav>
 <section class="hero"><div><span class="pill">✦ Your browser arcade</span><h1>PLAY IN<br><span class="gradient">A NEW LIGHT.</span></h1><p>Jump into quick arcade challenges, chase high scores, and play instantly. No installs or accounts needed for these mini-games.</p><div class="actions"><a class="btn primary" href="#games">▶ Explore games</a><a class="btn secondary" href="#publish">Publish online ↓</a></div></div><div class="art"><div class="controller">🎮</div></div></section>
