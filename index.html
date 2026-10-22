@@ -201,12 +201,23 @@ footer{margin-top:40px}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
 
 
-/* NEONPLAY_THUMBNAIL_FIX_V7 — image selectors outrank the color-theme classes */
-.cover.cover-rush{background-image:url('https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=900&q=80'),linear-gradient(135deg,#48123f,#17163d)}
-.cover.cover-memory{background-image:url('https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=900&q=80'),linear-gradient(135deg,#28134e,#12314a)}
-.cover.cover-numbers{background-image:url('https://images.unsplash.com/photo-1509228468518-180dd4864904?auto=format&fit=crop&w=900&q=80'),linear-gradient(135deg,#52270e,#29163f)}
-.cover.cover-pong{background-image:url('https://images.unsplash.com/photo-1547394765-185e1e68f34e?auto=format&fit=crop&w=900&q=80'),linear-gradient(135deg,#073b33,#142443)}
-.cover.cover-rpg{background-image:url('https://images.unsplash.com/photo-1519608487953-e999c86e7455?auto=format&fit=crop&w=900&q=80'),linear-gradient(135deg,#28134e,#12314a)}
+/* NEONPLAY_THUMBNAIL_FIX_V8 — force photo covers above theme background classes */
+.cover.cover-snake{background-image:url('https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=900&q=80'),linear-gradient(135deg,#073c49,#191b44)!important}
+.cover.cover-rush{background-image:url('https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=900&q=80'),linear-gradient(135deg,#48123f,#17163d)!important}
+.cover.cover-memory{background-image:url('https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=900&q=80'),linear-gradient(135deg,#28134e,#12314a)!important}
+.cover.cover-dodger{background-image:url('https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=900&q=80'),linear-gradient(135deg,#073c49,#191b44)!important}
+.cover.cover-numbers{background-image:url('https://images.unsplash.com/photo-1509228468518-180dd4864904?auto=format&fit=crop&w=900&q=80'),linear-gradient(135deg,#52270e,#29163f)!important}
+.cover.cover-pong{background-image:url('https://images.unsplash.com/photo-1547394765-185e1e68f34e?auto=format&fit=crop&w=900&q=80'),linear-gradient(135deg,#073b33,#142443)!important}
+.cover.cover-rpg{background-image:url('https://images.unsplash.com/photo-1519608487953-e999c86e7455?auto=format&fit=crop&w=900&q=80'),linear-gradient(135deg,#28134e,#12314a)!important}
+.cover.cover-western{background-image:url('https://images.unsplash.com/photo-150053085085?auto=format&fit=crop&w=900&q=80'),linear-gradient(135deg,#5a351e,#15101b)!important}
+.cover.cover-car{background-image:url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=900&q=80'),linear-gradient(135deg,#2d493d,#15101b)!important}
+.cover.cover-palms{background-image:url('https://images.unsplash.com/photo-1519046904884-53103b34b206?auto=format&fit=crop&w=900&q=80'),linear-gradient(135deg,#073b33,#142443)!important}
+.cover.cover-rdr1{background-image:url('https://cdn.akamai.steamstatic.com/steam/apps/2668510/header.jpg'),linear-gradient(135deg,#5a351e,#15101b)!important}
+.cover.cover-rdr2{background-image:url('https://cdn.akamai.steamstatic.com/steam/apps/1174180/header.jpg'),linear-gradient(135deg,#5a351e,#15101b)!important}
+.cover.cover-gta-sa{background-image:url('https://cdn.akamai.steamstatic.com/steam/apps/12120/header.jpg'),linear-gradient(135deg,#2d493d,#15101b)!important}
+.cover.cover-gta-vc{background-image:url('https://cdn.akamai.steamstatic.com/steam/apps/12110/header.jpg'),linear-gradient(135deg,#ee6a9d,#18295b)!important}
+.cover.cover-gta-v{background-image:url('https://cdn.akamai.steamstatic.com/steam/apps/271590/header.jpg'),linear-gradient(135deg,#2d493d,#15101b)!important}
+.cover{background-size:cover;background-position:center}
 
 </style></head><body><div class="wrap">
 <nav><a class="logo" href="#"><b>NEON</b>PLAY<span style="color:var(--pink)">.</span></a><div class="links"><a href="#games">Games</a><a href="#about">About</a><a href="#publish">Hosting</a></div><button class="player-chip" id="profileButton" type="button">👤 Player</button><button class="btn secondary" id="soundToggle" type="button" aria-pressed="false">🔇 Sound Off</button><a class="btn secondary" href="#games">Enter Arcade ↗</a></nav>
