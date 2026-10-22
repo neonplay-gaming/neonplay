@@ -200,6 +200,14 @@ footer{margin-top:40px}
 @media(max-width:520px){nav{flex-wrap:wrap;padding:12px 0}.logo{margin-right:auto}.links{order:3;width:100%;justify-content:space-around;border-top:1px solid #ffffff10;padding-top:9px}.hero{padding-top:35px}.art{min-height:195px}.controller{font-size:5.5rem}.stats{grid-template-columns:repeat(3,minmax(0,1fr))}.stat strong{font-size:1.05rem}.stat span{font-size:.73rem}.cover{height:145px}.featured-copy h2{font-size:1.8rem}#search{min-width:0}.leaderboard-table th,.leaderboard-table td{padding:9px 7px;font-size:.82rem}.player-chip{padding:8px 10px}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
 
+
+/* NEONPLAY_THUMBNAIL_FIX_V7 — image selectors outrank the color-theme classes */
+.cover.cover-rush{background-image:url('https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=900&q=80'),linear-gradient(135deg,#48123f,#17163d)}
+.cover.cover-memory{background-image:url('https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=900&q=80'),linear-gradient(135deg,#28134e,#12314a)}
+.cover.cover-numbers{background-image:url('https://images.unsplash.com/photo-1509228468518-180dd4864904?auto=format&fit=crop&w=900&q=80'),linear-gradient(135deg,#52270e,#29163f)}
+.cover.cover-pong{background-image:url('https://images.unsplash.com/photo-1547394765-185e1e68f34e?auto=format&fit=crop&w=900&q=80'),linear-gradient(135deg,#073b33,#142443)}
+.cover.cover-rpg{background-image:url('https://images.unsplash.com/photo-1519608487953-e999c86e7455?auto=format&fit=crop&w=900&q=80'),linear-gradient(135deg,#28134e,#12314a)}
+
 </style></head><body><div class="wrap">
 <nav><a class="logo" href="#"><b>NEON</b>PLAY<span style="color:var(--pink)">.</span></a><div class="links"><a href="#games">Games</a><a href="#about">About</a><a href="#publish">Hosting</a></div><button class="player-chip" id="profileButton" type="button">👤 Player</button><button class="btn secondary" id="soundToggle" type="button" aria-pressed="false">🔇 Sound Off</button><a class="btn secondary" href="#games">Enter Arcade ↗</a></nav>
 <section class="hero"><div><span class="pill">✦ Your browser arcade</span><h1>PLAY IN<br><span class="gradient">A NEW LIGHT.</span></h1><p>Jump into quick arcade challenges, chase high scores, and play instantly. No installs or accounts needed for these mini-games.</p><div class="actions"><a class="btn primary" href="#games">▶ Explore games</a><a class="btn secondary" href="#publish">Publish online ↓</a></div></div><div class="art"><div class="controller">🎮</div></div></section>
