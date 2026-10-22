@@ -45,8 +45,8 @@ function ensureNeonAudio(){
  if(!AC)throw new Error('Web Audio is not supported');
  if(!neonAudio){
   neonAudio=new AC();
-  neonMaster=neonAudio.createGain();neonMaster.gain.value=0.8;neonMaster.connect(neonAudio.destination);
-  neonMusicGain=neonAudio.createGain();neonMusicGain.gain.value=0.72;neonMusicGain.connect(neonMaster);
+  neonMaster=neonAudio.createGain();neonMaster.gain.value=1.0;neonMaster.connect(neonAudio.destination);
+  neonMusicGain=neonAudio.createGain();neonMusicGain.gain.value=1.0;neonMusicGain.connect(neonMaster);
  }
  return neonAudio;
 }
@@ -66,8 +66,8 @@ function startCyberMusic(){
  neonMusicTimer=setInterval(()=>{
   if(!soundEnabled||!neonAudio||neonAudio.state!=='running')return;
   const i=neonStep++;
-  if(lead[i%lead.length])synthTone(lead[i%lead.length],0.21,'square',0.19,0,neonMusicGain);
-  if(i%2===0)synthTone(bass[(i/2)%bass.length],0.44,'sawtooth',0.28,0,neonMusicGain);
+  if(lead[i%lead.length])synthTone(lead[i%lead.length],0.21,'square',0.30,0,neonMusicGain);
+  if(i%2===0)synthTone(bass[(i/2)%bass.length],0.44,'sawtooth',0.38,0,neonMusicGain);
   if(i%4===0)synthTone(1318.51,0.07,'sine',0.10,0.02,neonMusicGain);
  },190);
 }
@@ -100,7 +100,7 @@ $('#soundToggle').addEventListener('click',async()=>{
   soundEnabled=false;clearInterval(neonMusicTimer);$('#soundToggle').textContent='🔇 Sound Off';$('#soundToggle').setAttribute('aria-pressed','false');
   if(neonMaster&&neonAudio){neonMaster.gain.cancelScheduledValues(neonAudio.currentTime);neonMaster.gain.setTargetAtTime(0,neonAudio.currentTime,0.04)}
  }else{
-  if(neonMaster&&neonAudio){neonMaster.gain.cancelScheduledValues(neonAudio.currentTime);neonMaster.gain.setTargetAtTime(0.8,neonAudio.currentTime,0.04)}
+  if(neonMaster&&neonAudio){neonMaster.gain.cancelScheduledValues(neonAudio.currentTime);neonMaster.gain.setTargetAtTime(1.0,neonAudio.currentTime,0.04)}
   await startNeonSound();
  }
 });
