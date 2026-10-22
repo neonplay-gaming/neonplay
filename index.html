@@ -91,6 +91,50 @@ footer{margin-top:22px}
 .auth-overlay{display:none;position:fixed;inset:0;z-index:12;background:#03040bf2;align-items:center;justify-content:center;padding:16px}.auth-overlay.open{display:flex}.auth-panel{width:min(440px,100%);background:#0d1326;border:1px solid #42f5ff77;border-radius:20px;padding:22px;box-shadow:0 0 60px #42f5ff1c}.auth-panel h2{margin:0 0 8px}.auth-panel p{color:var(--muted)}.auth-panel input{width:100%;margin:6px 0 10px}.auth-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.auth-note{font-size:.8rem;color:var(--muted)}
 /* Improved official game artwork cards */
 .cover-rdr1,.cover-rdr2,.cover-gta-sa,.cover-gta-vc,.cover-gta-v{background-size:cover;background-position:center}
+
+/* NEONPLAY_CYBER_MOBILE_V6 */
+.cover-2048{background-image:radial-gradient(circle at 50% 45%,#ffcf5c44,transparent 55%),linear-gradient(135deg,#4b3213,#24113e)}
+.cover-hextris{background-image:radial-gradient(circle at 50% 45%,#42f5ff44,transparent 55%),linear-gradient(135deg,#073c49,#24113e)}
+.cover-cookie{background-image:radial-gradient(circle at 50% 45%,#ffb14b44,transparent 55%),linear-gradient(135deg,#52270e,#29163f)}
+.game .buttons .btn{min-height:42px}
+button,a,input,select{touch-action:manipulation}
+button:focus-visible,a:focus-visible{outline:3px solid var(--cyan);outline-offset:3px}
+@media(max-width:760px){
+ .wrap{width:min(100% - 28px,1180px)}
+ nav{gap:12px;flex-wrap:wrap}
+ .links{flex-wrap:wrap;gap:10px;font-size:.9rem}
+ .hero{gap:20px}
+ .stats{grid-template-columns:repeat(3,minmax(0,1fr))}
+ .game .buttons{flex-wrap:wrap}
+ .game .buttons .btn{min-height:44px}
+ .player-tools .player-chip{min-height:42px}
+}
+@media(max-width:520px){
+ .wrap{width:calc(100% - 24px)}
+ nav{align-items:flex-start}
+ .logo{font-size:1.25rem}
+ .links{width:100%;justify-content:space-between;gap:8px}
+ .hero{padding:36px 0 24px}
+ h1{font-size:clamp(2.55rem,13vw,4rem)}
+ .stats{grid-template-columns:1fr;gap:8px;margin-bottom:30px}
+ .stat{display:flex;align-items:center;justify-content:space-between;gap:12px}
+ .stat strong{font-size:1.15rem}
+ .head{gap:12px;margin-top:34px}
+ .grid{grid-template-columns:1fr;gap:13px}
+ .cover{height:170px}
+ .body{padding:16px}
+ .gtitle{align-items:flex-start}
+ .gtitle h3{font-size:1.02rem}
+ .buttons .btn{font-size:.88rem;padding:12px 10px}
+ .info{padding:18px;margin:32px 0}
+ .addpanel{padding:15px}
+ .leaderboard-panel{padding:14px;overflow-x:auto}
+ .leaderboard-table{min-width:320px}
+ .modal,.detail-overlay,.auth-overlay{padding:10px}
+ .box,.detail-panel,.auth-panel{padding:15px;max-height:94dvh;overflow:auto}
+}
+@media(hover:none){.game:hover{transform:none}.btn:hover{transform:none}}
+
 </style></head><body><div class="wrap">
 <nav><a class="logo" href="#"><b>NEON</b>PLAY<span style="color:var(--pink)">.</span></a><div class="links"><a href="#games">Games</a><a href="#about">About</a><a href="#publish">Hosting</a></div><button class="player-chip" id="profileButton" type="button">👤 Player</button><button class="btn secondary" id="soundToggle" type="button" aria-pressed="false">🔇 Sound Off</button><a class="btn secondary" href="#games">Enter Arcade ↗</a></nav>
 <section class="hero"><div><span class="pill">✦ Your browser arcade</span><h1>PLAY IN<br><span class="gradient">A NEW LIGHT.</span></h1><p>Jump into quick arcade challenges, chase high scores, and play instantly. No installs or accounts needed for these mini-games.</p><div class="actions"><a class="btn primary" href="#games">▶ Explore games</a><a class="btn secondary" href="#publish">Publish online ↓</a></div></div><div class="art"><div class="controller">🎮</div></div></section>
@@ -111,6 +155,9 @@ footer{margin-top:22px}
 <article class="game" data-name="grand theft auto san andreas coming soon" data-category="action"><div class="cover cover-gta-sa" aria-label="Grand Theft Auto San Andreas cover art"></div><div class="body"><div class="gtitle"><h3>Grand Theft Auto: San Andreas</h3><span class="tag">COMING SOON</span></div><p>Return to San Andreas — coming soon to NeonPlay.</p><div class="buttons"><button class="btn primary" disabled style="opacity:.65;cursor:not-allowed">Coming Soon</button></div></div></article>
 <article class="game" data-name="gta vice city definitive edition windows" data-category="action"><div class="cover cover-gta-vc" aria-label="GTA Vice City cover art"></div><div class="body"><div class="gtitle"><h3>GTA Vice City: Definitive Edition</h3><span class="tag">WINDOWS PC</span></div><p>Visit Vice City in this open-world action adventure.</p><div class="buttons"><a class="btn primary" href="https://drive.google.com/drive/folders/1aGdUT2eWDWw5cBpb97IyqIbcUi5hYm8o?usp=drive_link" target="_blank" rel="noopener noreferrer">Download GTA Vice City ↗</a></div></div></article>
 <article class="game" data-name="grand theft auto v gta 5 windows pc" data-category="action"><div class="cover cover-gta-v" aria-label="Grand Theft Auto V cover art"></div><div class="body"><div class="gtitle"><h3>Grand Theft Auto V</h3><span class="tag">WINDOWS PC</span></div><p>Explore Los Santos in Rockstar's open-world action game.</p><div class="buttons"><a class="btn primary" href="https://store.rockstargames.com/" target="_blank" rel="noopener noreferrer">Official Rockstar Store ↗</a></div></div></article>
+<article class="game" data-name="2048 number puzzle browser free" data-category="puzzle"><div class="cover cover-2048">🔢</div><div class="body"><div class="gtitle"><h3>2048</h3><span class="tag">PUZZLE</span></div><p>Slide number tiles and combine them to reach 2048.</p><div class="buttons"><a class="btn primary" href="https://play2048.co/" target="_blank" rel="noopener noreferrer">▶ Play Online ↗</a></div></div></article>
+<article class="game" data-name="hextris hexagon puzzle arcade" data-category="arcade"><div class="cover cover-hextris">⬡</div><div class="body"><div class="gtitle"><h3>Hextris</h3><span class="tag">ARCADE</span></div><p>A fast hexagon puzzle challenge that tests your reflexes.</p><div class="buttons"><a class="btn primary" href="https://hextris.io/" target="_blank" rel="noopener noreferrer">▶ Play Online ↗</a></div></div></article>
+<article class="game" data-name="cookie clicker idle casual browser" data-category="casual"><div class="cover cover-cookie">🍪</div><div class="body"><div class="gtitle"><h3>Cookie Clicker</h3><span class="tag">CASUAL</span></div><p>Click, bake cookies and build a giant cookie empire.</p><div class="buttons"><a class="btn primary" href="https://orteil.dashnet.org/cookieclicker/" target="_blank" rel="noopener noreferrer">▶ Play Online ↗</a></div></div></article>
 </div></section>
 <section class="info" id="about"><div><h2>Made to glow. <span class="gradient">Made to play.</span></h2><p>NeonPlay is a lightweight responsive browser arcade with original mini-game demos. No login, API key or software install is required to play.</p><p>Download saves a local copy of this arcade page as an HTML file.</p></div><div id="publish"><h2>Publish NeonPlay free</h2><ol><li>Create/sign in to <a href="https://github.com/">GitHub</a>.</li><li>Upload this <code>index.html</code> to your public repository.</li><li>Open Settings → Pages.</li><li>Select “Deploy from a branch”, branch <code>main</code>, folder <code>/(root)</code>, then Save.</li><li>Wait for the published URL to appear in Pages settings.</li></ol><p><a href="https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-github-pages-site">Official GitHub Pages guide ↗</a></p></div></section>
 <section class="info" id="discover"><div><h2>Find your next <span class="gradient">favourite.</span></h2><p>Browse arcade classics, quick brain games, space challenges and PC game listings. Use the category filters to find something faster.</p><p class="credit-note">Some arcade covers use illustrative photos; named GTA and Red Dead cards use game-specific cover artwork where available.</p></div><div><h2>What’s inside</h2><ul><li>Six playable mini-games built into the page</li><li>Search and one-tap category filters</li><li>Custom game cards saved in your browser</li><li>Mobile-friendly neon arcade layout</li></ul></div></section><footer><span>© <span id="year"></span> <b>NeonPlay</b> — Keep it glowing.</span><span>Made for gamers • Play responsibly</span></footer></div>
