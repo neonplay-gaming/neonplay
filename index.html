@@ -46,7 +46,7 @@ function ensureNeonAudio(){
  if(!neonAudio){
   neonAudio=new AC();
   neonMaster=neonAudio.createGain();neonMaster.gain.value=0.8;neonMaster.connect(neonAudio.destination);
-  neonMusicGain=neonAudio.createGain();neonMusicGain.gain.value=0.24;neonMusicGain.connect(neonMaster);
+  neonMusicGain=neonAudio.createGain();neonMusicGain.gain.value=0.72;neonMusicGain.connect(neonMaster);
  }
  return neonAudio;
 }
@@ -66,10 +66,10 @@ function startCyberMusic(){
  neonMusicTimer=setInterval(()=>{
   if(!soundEnabled||!neonAudio||neonAudio.state!=='running')return;
   const i=neonStep++;
-  if(lead[i%lead.length])synthTone(lead[i%lead.length],0.22,'square',0.075,0,neonMusicGain);
-  if(i%2===0)synthTone(bass[(i/2)%bass.length],0.48,'sawtooth',0.12,0,neonMusicGain);
-  if(i%4===0)synthTone(1318.51,0.06,'sine',0.035,0.02,neonMusicGain);
- },230);
+  if(lead[i%lead.length])synthTone(lead[i%lead.length],0.21,'square',0.19,0,neonMusicGain);
+  if(i%2===0)synthTone(bass[(i/2)%bass.length],0.44,'sawtooth',0.28,0,neonMusicGain);
+  if(i%4===0)synthTone(1318.51,0.07,'sine',0.10,0.02,neonMusicGain);
+ },190);
 }
 async function startNeonSound(){
  try{
