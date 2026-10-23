@@ -669,6 +669,6 @@ function pong(){setArea('<p>Move your paddle with mouse/touch or arrow keys.</p>
 .np-key-tip strong{color:#70eaff}
 </style>
 <script>
-(()=>{const box=document.getElementById('npKeyNotice');if(!box)return;const close=()=>{box.hidden=true;document.body.style.overflow='';};const open=()=>{box.hidden=false;document.body.style.overflow='hidden';};document.getElementById('npKeyClose')?.addEventListener('click',close);document.getElementById('npKeyContinue')?.addEventListener('click',close);box.addEventListener('click',e=>{if(e.target===box)close()});document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!box.hidden)close()});window.addEventListener('load',()=>setTimeout(open,5600),{once:true});})();
+(()=>{const box=document.getElementById('npKeyNotice');if(!box)return;const close=()=>{box.hidden=true;document.body.style.overflow='';};const open=()=>{box.hidden=false;document.body.style.overflow='hidden';};document.getElementById('npKeyClose')?.addEventListener('click',close);document.getElementById('npKeyContinue')?.addEventListener('click',close);box.addEventListener('click',e=>{if(e.target===box)close()});document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!box.hidden)close()});setTimeout(open,6500);})();
 </script>
 </body></html>
