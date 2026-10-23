@@ -404,6 +404,37 @@ footer{margin-top:32px;border-color:#1b3b5a}
   </div>
 </section>
 
+
+<!-- NEONPLAY_YOUTUBE_HUB_V8 -->
+<style>
+.np-youtube-hub{margin:34px 0;padding:clamp(18px,3vw,30px);border:1px solid #ff3bd444;border-radius:24px;background:radial-gradient(ellipse at 90% 0%,#42113c88,transparent 45%),linear-gradient(135deg,#121a32,#0c1020);box-shadow:0 18px 48px #0004}
+.np-yh-head{display:flex;justify-content:space-between;align-items:end;gap:16px;margin-bottom:20px;flex-wrap:wrap}
+.np-yh-kicker{font-size:.72rem;font-weight:900;letter-spacing:.14em;color:#ff6bdc}
+.np-yh-head h2{margin:6px 0;font-size:clamp(1.6rem,4vw,2.3rem);letter-spacing:-.04em}
+.np-yh-head p{margin:0;color:var(--muted);max-width:600px;line-height:1.7}
+.np-yh-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.np-yh-card{display:flex;flex-direction:column;min-width:0;overflow:hidden;border:1px solid #ffffff1c;border-radius:17px;background:#080d1bd9;transition:transform .2s,border-color .2s,box-shadow .2s}
+.np-yh-card:hover{transform:translateY(-5px);border-color:#ff3bd477;box-shadow:0 12px 30px #0005}
+.np-yh-art{position:relative;min-height:135px;display:grid;place-items:center;overflow:hidden;font-size:3.2rem;background:radial-gradient(circle at 50% 40%,#ff3bd444,transparent 48%),linear-gradient(135deg,#2c1647,#102b43)}
+.np-yh-card:nth-child(2) .np-yh-art{background:radial-gradient(circle at 50% 40%,#42f5ff44,transparent 48%),linear-gradient(135deg,#102b43,#1d1740)}
+.np-yh-card:nth-child(3) .np-yh-art{background:radial-gradient(circle at 50% 40%,#a879ff44,transparent 48%),linear-gradient(135deg,#241743,#36142f)}
+.np-yh-art:after{content:"";position:absolute;inset:auto 10% 0;height:2px;background:linear-gradient(90deg,transparent,#42f5ff,#ff3bd4,transparent)}
+.np-yh-copy{padding:15px;display:flex;flex:1;flex-direction:column;align-items:flex-start;gap:8px}
+.np-yh-copy h3{margin:0;font-size:1.05rem}
+.np-yh-copy p{margin:0 0 7px;color:var(--muted);font-size:.88rem;line-height:1.6;flex:1}
+.np-yh-link{display:inline-flex;align-items:center;justify-content:center;gap:7px;padding:10px 12px;border-radius:10px;background:linear-gradient(110deg,#ff3bd4,#ff4d6d);color:#fff!important;font-size:.84rem;font-weight:850}
+.np-yh-link:hover{filter:brightness(1.12)}
+@media(max-width:700px){.np-yh-grid{grid-template-columns:1fr}.np-yh-art{min-height:105px}.np-yh-head{align-items:flex-start}}
+</style>
+<section class="np-youtube-hub" id="youtube-hub" aria-labelledby="npYtHubTitle">
+  <div class="np-yh-head"><div><span class="np-yh-kicker">▶ NEONPLAY ON YOUTUBE</span><h2 id="npYtHubTitle">Watch. Discover. Subscribe.</h2><p>Gaming videos, Shorts aur playlists ko ek jagah se explore karo. Naye uploads ke liye channel subscribe karna na bhoolein.</p></div><a class="np-yh-link" href="https://www.youtube.com/@NeonPlay-r3z?sub_confirmation=1" target="_blank" rel="noopener noreferrer">🔔 Subscribe ↗</a></div>
+  <div class="np-yh-grid">
+    <article class="np-yh-card"><div class="np-yh-art" aria-hidden="true">🎬</div><div class="np-yh-copy"><h3>Latest Videos</h3><p>Full gaming videos, gameplay aur tutorials dekhein.</p><a class="np-yh-link" href="https://www.youtube.com/@NeonPlay-r3z/videos" target="_blank" rel="noopener noreferrer">Watch videos ↗</a></div></article>
+    <article class="np-yh-card"><div class="np-yh-art" aria-hidden="true">⚡</div><div class="np-yh-copy"><h3>Gaming Shorts</h3><p>Quick gaming clips aur short-form content explore karo.</p><a class="np-yh-link" href="https://www.youtube.com/@NeonPlay-r3z/shorts" target="_blank" rel="noopener noreferrer">Watch Shorts ↗</a></div></article>
+    <article class="np-yh-card"><div class="np-yh-art" aria-hidden="true">🎮</div><div class="np-yh-copy"><h3>Playlists</h3><p>Gaming content ko playlists ke hisaab se browse karo.</p><a class="np-yh-link" href="https://www.youtube.com/@NeonPlay-r3z/playlists" target="_blank" rel="noopener noreferrer">Explore playlists ↗</a></div></article>
+  </div>
+</section>
+
 <section class="np-creator-spotlight" aria-labelledby="npCreatorTitle">
   <div class="np-creator-mark" aria-hidden="true">▶</div>
   <div class="np-creator-copy"><span class="np-creator-kicker">NEONPLAY CREATOR SPOTLIGHT</span><h2 id="npCreatorTitle">More gaming. More updates.</h2><p>New gaming videos, game discoveries, tutorials and updates—join the NeonPlay community on YouTube.</p><div class="np-creator-channel">🎮 YouTube: <strong>@NeonPlay-r3z</strong></div></div>
