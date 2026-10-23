@@ -364,19 +364,10 @@ footer{margin-top:32px;border-color:#1b3b5a}
 .stats{margin-top:8px}
 @media(max-width:520px){.hero{padding-top:34px}.hero-search-row{flex-direction:column}.hero-search .btn{width:100%}.hero-art-caption{font-size:.58rem;letter-spacing:.12em}}
 @media(prefers-reduced-motion:reduce){.controller{animation:none}}
+
+/* FAST_ENTRY_UX: do not block the homepage with a forced promotional splash */
+#animeWalkLoader{display:none!important}
 </style></head><body>
-<div id="animeWalkLoader" role="status" aria-label="NeonPlay loading">
-  <div class="loader-image-only" aria-hidden="true"></div>
-  <section class="np-warning-card" role="dialog" aria-label="NeonPlay YouTube promotion">
-    <div class="np-warning-icon" aria-hidden="true">▶</div>
-    <p class="np-warning-kicker">NEONPLAY CREATOR SPOTLIGHT</p>
-    <h2>Level Up With Us!</h2>
-    <p class="np-warning-note">Gaming videos, new game updates, and more — join the NeonPlay community on YouTube.</p>
-    <p class="np-warning-channel">🎮 Subscribe to <strong>@NeonPlay-r3z</strong></p>
-    <a class="np-youtube-cta" href="https://www.youtube.com/@NeonPlay-r3z" target="_blank" rel="noopener noreferrer">▶ Visit @NeonPlay-r3z</a>
-    <div class="np-warning-loading"><span></span> Loading arcade…</div>
-  </section>
-</div>
 <div class="wrap">
 <nav><a class="logo" href="#"><b>NEON</b>PLAY<span style="color:var(--pink)">.</span></a><div class="links"><a href="#games">PC &amp; Web</a><a href="./install-guides.html">Install Guides</a><a href="#android">📱 Android Zone</a><a href="#anime">⛩️ Anime Zone</a><a href="#about">About</a><a href="#publish">Hosting</a></div><button class="player-chip" id="profileButton" type="button">👤 Player</button><button class="btn secondary" id="soundToggle" type="button" aria-pressed="false">🔇 Sound Off</button><a class="btn secondary" href="#games">Enter Arcade ↗</a></nav>
 <section class="hero"><div><span class="pill">✦ YOUR NEXT GAME STARTS HERE</span><h1>Find a game.<br><span class="gradient">Press play.</span></h1><p>Play mini-games instantly, discover PC and Android games, and follow simple step-by-step guides. No confusing menus—just choose what you want to do.</p><form class="hero-search" id="heroSearchForm" role="search"><label for="heroSearch">What do you want to play?</label><div class="hero-search-row"><input id="heroSearch" type="search" placeholder="Search a game…" autocomplete="off"><button class="btn primary" type="submit">Find game ↗</button></div></form><div class="actions"><a class="btn primary" href="#browser-arcade">▶ Play instantly</a><a class="btn secondary" href="./install-guides.html">📘 Install guides</a><a class="btn secondary" href="#android">📱 Android games</a></div></div><div class="art"><div class="controller" aria-hidden="true">🎮</div><span class="hero-art-caption">PLAY • DISCOVER • LEVEL UP</span></div></section>
