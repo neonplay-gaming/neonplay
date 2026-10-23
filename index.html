@@ -641,36 +641,4 @@ function dodger(){setArea('<p>Move with ← → or A/D to dodge falling stars.</
 function pong(){setArea('<p>Move your paddle with mouse/touch or arrow keys.</p><canvas id="cv" width="520" height="300"></canvas><div id="sc" class="score">Score: 0</div>');setControls('<button class="btn primary" id="again">↻ Restart</button>');let c=$('#cv'),x=c.getContext('2d'),px=210,bx=260,by=150,vx=3,vy=2,score=0,dead=false,keys={},raf;function move(e){let r=c.getBoundingClientRect();px=(e.clientX-r.left)*c.width/r.width-50;px=Math.max(0,Math.min(420,px))}function kd(e){keys[e.key]=true}function ku(e){keys[e.key]=false}c.addEventListener('pointermove',move);document.addEventListener('keydown',kd);document.addEventListener('keyup',ku);function frame(){if(dead)return;if(keys.ArrowLeft)px-=5;if(keys.ArrowRight)px+=5;px=Math.max(0,Math.min(420,px));bx+=vx;by+=vy;if(bx<8||bx>512)vx*=-1;if(by<8)vy*=-1;if(by>260&&by<285&&bx>px&&bx<px+100){playGameSfx('bounce');vy=-Math.abs(vy);score++;$('#sc').textContent='Score: '+score}if(by>300){dead=true;$('#sc').textContent='Game over — score '+score;saveHighScore('Neon Pong',score);return}x.clearRect(0,0,520,300);x.fillStyle='#42f5ff';x.fillRect(px,276,100,8);x.fillStyle='#ff3bd4';x.beginPath();x.arc(bx,by,8,0,Math.PI*2);x.fill();raf=requestAnimationFrame(frame)}raf=requestAnimationFrame(frame);$('#again').onclick=()=>{cleanup();pong()};cleanup=()=>{cancelAnimationFrame(raf);c.removeEventListener('pointermove',move);document.removeEventListener('keydown',kd);document.removeEventListener('keyup',ku)}}
 
 </script>
-<!-- Optional download-key notice; dismissible and does not block the site -->
-<div id="npKeyNotice" class="np-key-overlay" role="dialog" aria-modal="true" aria-labelledby="npKeyTitle" aria-describedby="npKeyDesc" hidden>
-  <section class="np-key-card">
-    <button class="np-key-close" id="npKeyClose" type="button" aria-label="Close key notice">×</button>
-    <div class="np-key-symbol" aria-hidden="true">🔑</div>
-    <p class="np-key-kicker">NEONPLAY DOWNLOAD NOTICE</p>
-    <h2 id="npKeyTitle">Key Required</h2>
-    <p id="npKeyDesc">Some game downloads may require a key. Check the official NeonPlay YouTube channel for the correct key and instructions.</p>
-    <button class="np-key-dismiss" id="npKeyContinue" type="button">Got it — continue</button>
-    <div class="np-key-tip"><span aria-hidden="true">✨</span><span><strong>Gamer tip:</strong> Save this page to your bookmarks so you can quickly return to NeonPlay and find new games.</span></div>
-    <p class="np-key-footnote">This notice does not ask for your account password.</p>
-  </section>
-</div>
-<style>
-.np-key-overlay{position:fixed;inset:0;z-index:100000;display:flex;align-items:center;justify-content:center;padding:18px;background:rgba(2,5,15,.78);backdrop-filter:blur(7px)}
-.np-key-overlay[hidden]{display:none!important}
-.np-key-card{position:relative;width:min(420px,100%);padding:28px 24px 22px;text-align:center;color:#f5f7ff;background:#0b1022;border:1px solid rgba(112,234,255,.55);border-radius:18px;box-shadow:0 18px 70px rgba(0,0,0,.6),0 0 25px rgba(112,234,255,.12);font-family:inherit}
-.np-key-close{position:absolute;top:8px;right:12px;border:0;background:transparent;color:#c7d3e9;font-size:30px;line-height:1;cursor:pointer;padding:4px 8px}
-.np-key-symbol{font-size:36px;margin-bottom:8px}
-.np-key-kicker{margin:0 0 7px;color:#70eaff;font-size:10px;font-weight:800;letter-spacing:1.8px}
-.np-key-card h2{margin:0 0 12px;font-size:28px;color:#fff}
-.np-key-card p{font-size:14px;line-height:1.65;color:#d4def2;margin:0 0 16px}
-.np-key-dismiss{border:0;border-radius:10px;padding:12px 18px;background:linear-gradient(90deg,#70eaff,#b1a4ff);color:#07101d;font:700 14px inherit;cursor:pointer;width:100%}
-.np-key-card .np-key-footnote{font-size:11px;color:#93a3c0;margin:13px 0 0}
-
-.np-key-tip{display:flex;align-items:flex-start;gap:9px;text-align:left;margin:16px 0 14px;padding:12px;border-radius:11px;background:rgba(112,234,255,.08);border:1px solid rgba(112,234,255,.22);color:#dcecff;font-size:12px;line-height:1.55}
-.np-key-tip>span:first-child{font-size:17px;line-height:1.2}
-.np-key-tip strong{color:#70eaff}
-</style>
-<script>
-(()=>{const box=document.getElementById('npKeyNotice');if(!box)return;const close=()=>{box.hidden=true;document.body.style.overflow='';};const open=()=>{box.hidden=false;document.body.style.overflow='hidden';};document.getElementById('npKeyClose')?.addEventListener('click',close);document.getElementById('npKeyContinue')?.addEventListener('click',close);box.addEventListener('click',e=>{if(e.target===box)close()});document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!box.hidden)close()});setTimeout(open,6500);})();
-</script>
 </body></html>
