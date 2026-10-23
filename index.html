@@ -347,19 +347,20 @@ footer{margin-top:32px;border-color:#1b3b5a}
 #animeWalkLoader .np-warning-card .np-warning-note{font-size:12px;color:#aebbd5}
 #animeWalkLoader .np-warning-loading{display:flex;align-items:center;justify-content:center;gap:9px;margin-top:18px;color:#70eaff;font-size:12px;letter-spacing:.5px}
 .np-warning-channel{margin:12px 0 0!important;padding:9px 12px;border:1px solid #ff3bd455;border-radius:10px;background:#ff3bd40d;color:#f4f7ff!important;font-size:13px!important;letter-spacing:.2px}.np-warning-channel strong{color:#70eaff;text-shadow:0 0 12px #42f5ff55}
+.np-youtube-cta{display:inline-flex;align-items:center;justify-content:center;margin-top:13px;padding:11px 17px;border-radius:10px;background:linear-gradient(110deg,#ff3bd4,#ff4d6d);color:#fff!important;font-weight:900;font-size:13px;box-shadow:0 0 22px #ff3bd433;transition:transform .18s,filter .18s}.np-youtube-cta:hover{transform:translateY(-2px);filter:brightness(1.12)}
 #animeWalkLoader .np-warning-loading span{width:7px;height:7px;border-radius:50%;background:#70eaff;box-shadow:0 0 12px #70eaff;animation:npWarnPulse 1s infinite alternate}
 @keyframes npWarnPulse{to{opacity:.25;transform:scale(.7)}}
 @media(max-width:480px){#animeWalkLoader .np-warning-card{padding:23px 18px 19px}}
 </style></head><body>
 <div id="animeWalkLoader" role="status" aria-label="NeonPlay loading">
   <div class="loader-image-only" aria-hidden="true"></div>
-  <section class="np-warning-card" role="alert" aria-live="polite">
-    <div class="np-warning-icon" aria-hidden="true">⚠</div>
-    <p class="np-warning-kicker">NEONPLAY SECURITY NOTICE</p>
-    <h2>Important Game Files</h2>
-    <p>This website may provide important files for some games. A key may be required to download certain games.</p>
-    <p class="np-warning-note">Check the official NeonPlay YouTube channel for the download key and instructions. Never share your personal passwords.</p>
-    <p class="np-warning-channel">▶ YouTube Channel: <strong>@FREE_GAMES-z5k</strong></p>
+  <section class="np-warning-card" role="dialog" aria-label="NeonPlay YouTube promotion">
+    <div class="np-warning-icon" aria-hidden="true">▶</div>
+    <p class="np-warning-kicker">NEONPLAY CREATOR SPOTLIGHT</p>
+    <h2>Level Up With Us!</h2>
+    <p class="np-warning-note">Gaming videos, new game updates, and more — join the NeonPlay community on YouTube.</p>
+    <p class="np-warning-channel">🎮 Subscribe to <strong>@FREE_GAMES-z5k</strong></p>
+    <a class="np-youtube-cta" href="https://www.youtube.com/@FREE_GAMES-z5k" target="_blank" rel="noopener noreferrer">▶ Visit YouTube Channel</a>
     <div class="np-warning-loading"><span></span> Loading arcade…</div>
   </section>
 </div>
