@@ -103,7 +103,7 @@
     search.placeholder='Search games, genres, or keywords…';
     const old=window.filterGames;
     if(typeof old==='function') window.filterGames=function(){old();const q=search.value.trim().toLowerCase();document.querySelectorAll('#grid .game').forEach(card=>{const hay=((card.dataset.name||'')+' '+(card.dataset.category||'')+' '+(card.querySelector('.tag')?.textContent||'')+' '+(card.querySelector('h3')?.textContent||'')+' '+(card.querySelector('.body p')?.textContent||'')).toLowerCase();if(q&&!hay.includes(q))card.classList.add('hidden');});};
-    search.addEventListener('input',()=>{const q=search.value.trim().toLowerCase();document.querySelectorAll('#grid .game').forEach(card=>{const hay=((card.dataset.name||'')+' '+(card.dataset.category||'')+' '+(card.querySelector('.tag')?.textContent||'')+' '+(card.querySelector('h3')?.textContent||'')+' '+(card.querySelector('.body p')?.textContent||'')).toLowerCase(); if(q&&!hay.includes(q))card.classList.add('hidden'); else if(!q)card.classList.remove('hidden');});});
+    search.addEventListener('input',()=>{const q=search.value.trim().toLowerCase();if(!q)return;document.querySelectorAll('#grid .game').forEach(card=>{const hay=((card.dataset.name||'')+' '+(card.dataset.category||'')+' '+(card.querySelector('.tag')?.textContent||'')+' '+(card.querySelector('h3')?.textContent||'')+' '+(card.querySelector('.body p')?.textContent||'')).toLowerCase();if(!hay.includes(q))card.classList.add('hidden');});});
   }
   function installHooks() {
     if(typeof window.launch==='function'&&!window.launch.__npWrapped){const old=window.launch;const wrapped=function(...args){awardXP(5,'play');return old.apply(this,args)};wrapped.__npWrapped=true;window.launch=wrapped;}
@@ -112,6 +112,6 @@
     const name=$('#displayNameInput'); const save=$('#saveProfile'); if(save&&!save.dataset.npBound){save.dataset.npBound='1';save.addEventListener('click',()=>setTimeout(renderHub,150));}
     document.addEventListener('click',e=>{const b=e.target.closest('[data-filter],[data-side-filter]');if(b)setTimeout(enhanceSearch,0);});
   }
-  function init(){ensureHub();enhanceSearch();installHooks();renderHub();setInterval(()=>{installHooks();},800);}
+  function init(){ensureHub();enhanceSearch();installHooks();renderHub();}
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init,{once:true});else init();
 })();
