@@ -317,7 +317,7 @@ footer{margin-top:32px;border-color:#1b3b5a}
 #animeWalkLoader .walk-track{position:relative;height:190px;margin:8px auto 0;max-width:500px;overflow:hidden}
 #animeWalkLoader .walk-track:before{content:"";position:absolute;left:0;right:0;bottom:23px;height:2px;background:linear-gradient(90deg,transparent,var(--walker-glow,#42f5ff),#ff4b9b,transparent);box-shadow:0 0 15px var(--walker-glow,#42f5ff)}
 #animeWalkLoader .walker{position:absolute;left:-115px;bottom:24px;width:112px;height:160px;animation:anime-walk-across 2.65s linear forwards;filter:drop-shadow(0 0 12px var(--walker-glow,#42f5ff))}
-#animeWalkLoader .walker svg{width:100%;height:100%;overflow:visible}
+#animeWalkLoader .walker svg{width:100%;height:100%;overflow:visible}#animeWalkLoader #animeWalker3D{display:block;width:100%;height:100%}
 #animeWalkLoader .walker .leg-a,#animeWalkLoader .walker .leg-b,#animeWalkLoader .walker .arm-a,#animeWalkLoader .walker .arm-b{transform-box:fill-box;transform-origin:top center}
 #animeWalkLoader .walker .leg-a{animation:anime-leg-a .34s ease-in-out infinite alternate}
 #animeWalkLoader .walker .leg-b{animation:anime-leg-b .34s ease-in-out infinite alternate}
@@ -342,39 +342,7 @@ footer{margin-top:32px;border-color:#1b3b5a}
   <div class="loader-subtitle" id="animeWalkerName">Your anime heroine is arriving…</div>
   <div class="walk-track" aria-hidden="true">
    <div class="walker" id="animeWalker">
-    <svg viewBox="0 0 120 190" role="img" aria-label="Stylish adult anime woman walking">
-     <!-- long flowing hair -->
-     <path d="M35 43 Q19 28 28 9 Q42 -2 60 5 Q84 -1 93 18 Q99 34 84 51 L92 101 L81 127 L76 73 L42 77 L31 123 L23 98Z" fill="var(--walker-hair,#30213f)" stroke="#ffffff25" stroke-width="1.5"/>
-     <!-- legs and high boots -->
-     <g class="leg-a"><path d="M48 119 L44 151 L39 169" fill="none" stroke="#f0c2aa" stroke-width="9" stroke-linecap="round"/><path d="M32 151 L45 151 L45 171 L28 171Z" fill="#17172b" stroke="var(--walker-accent,#f58fc5)" stroke-width="2"/><path d="M29 169 L47 169 L51 176 L27 176Z" fill="#0b0d18"/></g>
-     <g class="leg-b"><path d="M70 119 L76 150 L83 168" fill="none" stroke="#f0c2aa" stroke-width="9" stroke-linecap="round"/><path d="M67 150 L80 150 L89 171 L73 171Z" fill="#17172b" stroke="var(--walker-accent,#f58fc5)" stroke-width="2"/><path d="M72 169 L91 169 L96 176 L72 176Z" fill="#0b0d18"/></g>
-     <g class="body-bob">
-      <!-- hair behind shoulders -->
-      <path d="M39 35 Q25 43 31 77 L27 107 Q39 118 43 88 L47 62Z" fill="var(--walker-hair,#30213f)"/>
-      <path d="M79 34 Q94 46 87 76 L94 99 Q82 113 78 84 L73 57Z" fill="var(--walker-hair,#30213f)"/>
-      <!-- fitted jacket and skirt silhouette -->
-      <path d="M43 65 Q60 59 77 65 L83 104 L74 119 L45 119 L36 104Z" fill="var(--walker-outfit,#6939a8)" stroke="#f6eaff" stroke-opacity=".7" stroke-width="1.5"/>
-      <path d="M46 67 L60 79 L74 66 L70 96 L51 96Z" fill="#fff0f7"/>
-      <path d="M51 96 L70 96 L79 119 L42 119Z" fill="var(--walker-accent,#f58fc5)" stroke="#ffffffaa" stroke-width="1.2"/>
-      <path d="M60 80 L60 113" stroke="var(--walker-outfit,#6939a8)" stroke-width="2"/>
-      <g class="arm-a"><path d="M42 70 L31 88 L27 102" fill="none" stroke="var(--walker-outfit,#6939a8)" stroke-width="10" stroke-linecap="round"/><path d="M27 98 L24 105" stroke="#f0c2aa" stroke-width="7" stroke-linecap="round"/></g>
-      <g class="arm-b"><path d="M78 70 L89 86 L94 98" fill="none" stroke="var(--walker-outfit,#6939a8)" stroke-width="10" stroke-linecap="round"/><path d="M94 96 L98 103" stroke="#f0c2aa" stroke-width="7" stroke-linecap="round"/></g>
-      <!-- face -->
-      <ellipse cx="60" cy="39" rx="20" ry="24" fill="#ffd8c7" stroke="#f5bba9" stroke-width="1"/>
-      <!-- side fringe -->
-      <path d="M39 37 Q33 12 55 10 Q79 5 82 29 L78 40 L72 28 L63 34 L55 25 L45 39 L42 57 L36 49Z" fill="var(--walker-hair,#30213f)"/>
-      <path d="M44 39 Q50 31 56 39 Q50 47 44 39Z" fill="#fff"/><ellipse cx="50" cy="39" rx="3.2" ry="5" fill="var(--walker-glow,#d38bff)"/><circle cx="51" cy="39" r="1.5" fill="#17152a"/>
-      <path d="M64 39 Q70 31 76 38 Q71 47 64 39Z" fill="#fff"/><ellipse cx="70" cy="39" rx="3.2" ry="5" fill="var(--walker-glow,#d38bff)"/><circle cx="69" cy="39" r="1.5" fill="#17152a"/>
-      <path d="M43 34 Q50 29 56 34 M64 34 Q71 29 77 33" fill="none" stroke="#39213c" stroke-width="2.2" stroke-linecap="round"/>
-      <path d="M57 51 Q61 55 65 50" fill="none" stroke="#c65e7b" stroke-width="2" stroke-linecap="round"/>
-      <path d="M44 48 Q48 51 52 49 M68 49 Q72 51 76 47" fill="none" stroke="#f19ab0" stroke-width="2.5" stroke-linecap="round" opacity=".8"/>
-      <!-- hair ornament -->
-      <path d="M76 19 L86 14 L83 26Z" fill="var(--walker-accent,#f58fc5)" stroke="#fff" stroke-width="1"/>
-      <circle cx="82" cy="21" r="3" fill="#fff4fb"/>
-      <!-- collar -->
-      <path d="M48 63 L60 76 L53 80 L43 66 M72 63 L60 76 L67 80 L77 66" fill="#fff0f7" stroke="var(--walker-accent,#f58fc5)" stroke-width="1"/>
-     </g>
-    </svg>
+    <canvas id="animeWalker3D" aria-label="3D anime heroine walking"></canvas>svg>
    </div>
   </div>
   <div class="loader-progress" aria-hidden="true"></div>
@@ -447,7 +415,7 @@ footer{margin-top:32px;border-color:#1b3b5a}
 
 <div class="auth-overlay" id="authOverlay" role="dialog" aria-modal="true" aria-labelledby="authTitle"><div class="auth-panel"><div class="modalhead"><h2 id="authTitle">Player account</h2><button class="btn secondary" id="closeAuth" type="button" aria-label="Close">✕</button></div><p>Create an online account with your email. Email verification may be required.</p><form id="authForm"><label for="authName">Email address</label><input id="authName" type="email" maxlength="254" autocomplete="email" placeholder="you@example.com" required><label for="authPassword">Password</label><input id="authPassword" type="password" minlength="8" autocomplete="current-password" placeholder="At least 8 characters" required><div class="auth-row"><button class="btn primary" type="submit" id="authSubmit">Sign in</button><button class="btn secondary" type="button" id="signupMode">Create account</button></div></form><p class="auth-note" id="authStatus">Connecting online account service…</p><div id="profileEditor" class="profile-editor"><label for="displayNameInput">Player display name</label><input id="displayNameInput" maxlength="24" placeholder="Your gamer name" autocomplete="nickname"><button class="btn secondary" id="saveProfile" type="button">Save profile name</button><p class="auth-note">Signed-in names sync online. Guest names stay in this browser.</p></div><button class="btn secondary" id="signOut" type="button">Sign out</button></div></div>
 <div class="detail-overlay" id="detailOverlay" role="dialog" aria-modal="true" aria-labelledby="detailTitle"><div class="detail-panel"><div class="modalhead"><h2 id="detailTitle">Game details</h2><button class="btn secondary" id="closeDetails" type="button">✕ Close</button></div><p id="detailDescription"></p><p id="detailCategory"></p><div class="detail-actions" id="detailActions"></div></div></div><div class="modal" id="modal" role="dialog" aria-modal="true"><div class="box"><div class="modalhead"><h2 id="modalTitle">Game</h2><button class="btn secondary" onclick="closeGame()">✕ Close</button></div><div class="area" id="area"></div><div class="controls" id="controls"></div></div></div>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script>
 /* NEONPLAY_WALKING_ANIME_LOADER_V13 */
 (function(){
  const loader=document.getElementById('animeWalkLoader');
@@ -466,6 +434,61 @@ footer{margin-top:32px;border-color:#1b3b5a}
  loader.style.setProperty('--walker-outfit',pick.outfit);
  loader.style.setProperty('--walker-accent',pick.accent);
  loader.style.setProperty('--walker-glow',pick.glow);
+ // Build a lightweight procedural 3D anime heroine with Three.js.
+ try{
+  const canvas=document.getElementById('animeWalker3D');
+  if(canvas&&window.THREE){
+   const T=window.THREE, scene=new T.Scene();
+   scene.background=null;
+   const camera=new T.PerspectiveCamera(34,canvas.clientWidth/Math.max(1,canvas.clientHeight),.1,100);
+   camera.position.set(0,1.7,7.8); camera.lookAt(0,1.45,0);
+   const renderer=new T.WebGLRenderer({canvas,alpha:true,antialias:true});
+   renderer.setPixelRatio(Math.min(window.devicePixelRatio||1,1.5));
+   renderer.setSize(Math.max(1,canvas.clientWidth),Math.max(1,canvas.clientHeight),false);
+   renderer.outputColorSpace=T.SRGBColorSpace;
+   scene.add(new T.HemisphereLight(0xeaf4ff,0x38204b,2.2));
+   const key=new T.DirectionalLight(0xffffff,3);key.position.set(3,5,6);scene.add(key);
+   const rim=new T.PointLight(pick.glow,12,12);rim.position.set(-2,2,2);scene.add(rim);
+   const mat=(color,roughness=.65,metalness=0)=>new T.MeshStandardMaterial({color,roughness,metalness});
+   const skin=mat('#ffd3bf'), hair=mat(pick.hair), outfit=mat(pick.outfit,.42), accent=mat(pick.accent,.35,.12), dark=mat('#201a2b'), white=mat('#fff5fb'), eye=mat(pick.glow,.22);
+   const root=new T.Group();scene.add(root);
+   function ball(parent,m,x,y,z,sx,sy,sz){const o=new T.Mesh(new T.SphereGeometry(1,20,14),m);o.position.set(x,y,z);o.scale.set(sx,sy,sz);parent.add(o);return o}
+   function capsule(parent,m,x,y,z,r,len){const o=new T.Mesh(new T.CapsuleGeometry(r,len,4,8),m);o.position.set(x,y,z);parent.add(o);return o}
+   // Head, face and large anime eyes
+   ball(root,skin,0,2.85,0,.48,.57,.42);
+   ball(root,hair,0,3.18,-.08,.51,.37,.44);
+   for(let side of [-1,1]){
+    const fringe=ball(root,hair,side*.29,3.02,.29,.19,.36,.19);fringe.rotation.z=side*.35;
+    ball(root,white,side*.19,2.88,.383,.115,.14,.055);
+    ball(root,eye,side*.19,2.88,.43,.058,.095,.025);
+    ball(root,dark,side*.19,2.88,.453,.025,.055,.012);
+    ball(root,accent,side*.36,3.05,.12,.12,.17,.13);
+   }
+   ball(root,skin,0,2.68,.39,.035,.045,.025);
+   // long back hair, front locks and hair ornament
+   for(let side of [-1,1]){const lock=capsule(root,hair,side*.43,2.35,-.02,.13,.9);lock.rotation.z=side*.08;const front=capsule(root,hair,side*.33,2.75,.28,.105,.34);front.rotation.z=-side*.4}
+   const bun=ball(root,hair,0,3.38,-.04,.32,.2,.28);
+   // torso, collar, jacket and pleated skirt silhouette
+   capsule(root,outfit,0,2.05,0,.29,.55);
+   const collar= new T.Mesh(new T.ConeGeometry(.22,.28,5),white);collar.position.set(0,2.31,.12);collar.rotation.z=Math.PI;root.add(collar);
+   const skirt=new T.Mesh(new T.ConeGeometry(.47,.48,10),accent);skirt.position.set(0,1.58,0);skirt.rotation.x=Math.PI;root.add(skirt);
+   // arms and legs pivot at shoulders/hips for a walk cycle
+   const limbs=[];
+   for(let side of [-1,1]){
+    const arm=new T.Group();arm.position.set(side*.32,2.25,0);root.add(arm);
+    capsule(arm,outfit,0,-.27,0,.095,.35).rotation.z=side*.1;ball(arm,skin,0,-.52,.02,.09,.09,.09);limbs.push({o:arm,phase:side===1?0:Math.PI,kind:'arm'});
+    const leg=new T.Group();leg.position.set(side*.2,1.38,0);root.add(leg);
+    capsule(leg,skin,0,-.27,0,.09,.35);capsule(leg,dark,0,-.57,.04,.115,.25);ball(leg,accent,0,-.72,.13,.15,.07,.24);limbs.push({o:leg,phase:side===1?Math.PI:0,kind:'leg'});
+   }
+   // small waist belt and front highlight
+   const belt=new T.Mesh(new T.TorusGeometry(.25,.035,8,24),dark);belt.rotation.x=Math.PI/2;belt.position.set(0,1.79,0);root.add(belt);
+   root.rotation.y=-.12;
+   let raf=0;const clock=new T.Clock();
+   function draw(){if(!document.getElementById('animeWalker3D')){renderer.dispose();return}const t=clock.getElapsedTime();limbs.forEach(l=>{l.o.rotation.z=Math.sin(t*8+l.phase)*(l.kind==='arm'?.48:.55)});root.position.y=Math.sin(t*16)*.035;root.rotation.y=-.12+Math.sin(t*2)*.06;renderer.render(scene,camera);raf=requestAnimationFrame(draw)}
+   draw();
+   window.addEventListener('resize',()=>{if(!canvas.isConnected)return;const w=Math.max(1,canvas.clientWidth),h=Math.max(1,canvas.clientHeight);camera.aspect=w/h;camera.updateProjectionMatrix();renderer.setSize(w,h,false)},{passive:true});
+  }
+ }catch(e){console.warn('3D heroine loader unavailable; continuing page load.',e)}
  const label=document.getElementById('animeWalkerName');
  if(label)label.textContent=pick.name+' is entering the arcade…';
  const hide=()=>{setTimeout(()=>loader.classList.add('is-gone'),900);setTimeout(()=>{if(loader.parentNode)loader.remove()},1450)};
