@@ -425,9 +425,26 @@ footer{margin-top:32px;border-color:#1b3b5a}
 .np-yh-link{display:inline-flex;align-items:center;justify-content:center;gap:7px;padding:10px 12px;border-radius:10px;background:linear-gradient(110deg,#ff3bd4,#ff4d6d);color:#fff!important;font-size:.84rem;font-weight:850}
 .np-yh-link:hover{filter:brightness(1.12)}
 @media(max-width:700px){.np-yh-grid{grid-template-columns:1fr}.np-yh-art{min-height:105px}.np-yh-head{align-items:flex-start}}
+
+.np-yh-featured{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(220px,.8fr);gap:20px;align-items:center;margin:0 0 22px;padding:12px;border:1px solid #42f5ff44;border-radius:18px;background:#070b18aa}
+.np-yh-player{position:relative;overflow:hidden;aspect-ratio:16/9;border-radius:12px;background:#050812;box-shadow:0 0 24px #42f5ff12}
+.np-yh-player iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.np-yh-featured-copy{padding:10px 8px}
+.np-yh-featured-copy .np-yh-kicker{display:block;margin-bottom:8px}
+.np-yh-featured-copy h3{margin:0 0 9px;font-size:clamp(1.2rem,2.8vw,1.7rem);line-height:1.2}
+.np-yh-featured-copy p{color:var(--muted);font-size:.9rem;line-height:1.7;margin:0 0 15px}
+.np-yh-thumb-link{display:block;position:relative;overflow:hidden;aspect-ratio:16/9;border-radius:12px;background:#10172b}
+.np-yh-thumb-link img{width:100%;height:100%;display:block;object-fit:cover;transition:transform .25s}
+.np-yh-thumb-link:hover img{transform:scale(1.04)}
+.np-yh-play-badge{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);background:#ff0033;color:#fff;border-radius:12px;padding:10px 18px;font-weight:900;box-shadow:0 4px 22px #0008}
+@media(max-width:700px){.np-yh-featured{grid-template-columns:1fr}.np-yh-featured-copy{padding:4px 3px 8px}}
 </style>
 <section class="np-youtube-hub" id="youtube-hub" aria-labelledby="npYtHubTitle">
   <div class="np-yh-head"><div><span class="np-yh-kicker">▶ NEONPLAY ON YOUTUBE</span><h2 id="npYtHubTitle">Watch. Discover. Subscribe.</h2><p>Gaming videos, Shorts aur playlists ko ek jagah se explore karo. Naye uploads ke liye channel subscribe karna na bhoolein.</p></div><a class="np-yh-link" href="https://www.youtube.com/@NeonPlay-r3z?sub_confirmation=1" target="_blank" rel="noopener noreferrer">🔔 Subscribe ↗</a></div>
+  <div class="np-yh-featured">
+    <div class="np-yh-player"><iframe id="npFeaturedVideo" src="https://www.youtube-nocookie.com/embed/_cbBRK7kpU4?rel=0" title="NEONPLAY featured YouTube video" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+    <div class="np-yh-featured-copy"><span class="np-yh-kicker">▶ FEATURED VIDEO</span><h3>Watch the latest from NEONPLAY</h3><p>Is video ko website par hi play karo, ya YouTube par full screen mein dekho. More gaming videos aur updates ke liye channel subscribe karein.</p><a class="np-yh-link" href="https://youtu.be/_cbBRK7kpU4" target="_blank" rel="noopener noreferrer">▶ Watch on YouTube ↗</a></div>
+  </div>
   <div class="np-yh-grid">
     <article class="np-yh-card"><div class="np-yh-art" aria-hidden="true">🎬</div><div class="np-yh-copy"><h3>Latest Videos</h3><p>Full gaming videos, gameplay aur tutorials dekhein.</p><a class="np-yh-link" href="https://www.youtube.com/@NeonPlay-r3z/videos" target="_blank" rel="noopener noreferrer">Watch videos ↗</a></div></article>
     <article class="np-yh-card"><div class="np-yh-art" aria-hidden="true">⚡</div><div class="np-yh-copy"><h3>Gaming Shorts</h3><p>Quick gaming clips aur short-form content explore karo.</p><a class="np-yh-link" href="https://www.youtube.com/@NeonPlay-r3z/shorts" target="_blank" rel="noopener noreferrer">Watch Shorts ↗</a></div></article>
