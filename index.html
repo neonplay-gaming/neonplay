@@ -648,6 +648,7 @@ function pong(){setArea('<p>Move your paddle with mouse/touch or arrow keys.</p>
     <h2 id="npKeyTitle">Key Required</h2>
     <p id="npKeyDesc">Some game downloads may require a key. Check the official NeonPlay YouTube channel for the correct key and instructions.</p>
     <button class="np-key-dismiss" id="npKeyContinue" type="button">Got it — continue</button>
+    <div class="np-key-tip"><span aria-hidden="true">✨</span><span><strong>Gamer tip:</strong> Save this page to your bookmarks so you can quickly return to NeonPlay and find new games.</span></div>
     <p class="np-key-footnote">This notice does not ask for your account password.</p>
   </section>
 </div>
@@ -662,6 +663,10 @@ function pong(){setArea('<p>Move your paddle with mouse/touch or arrow keys.</p>
 .np-key-card p{font-size:14px;line-height:1.65;color:#d4def2;margin:0 0 16px}
 .np-key-dismiss{border:0;border-radius:10px;padding:12px 18px;background:linear-gradient(90deg,#70eaff,#b1a4ff);color:#07101d;font:700 14px inherit;cursor:pointer;width:100%}
 .np-key-card .np-key-footnote{font-size:11px;color:#93a3c0;margin:13px 0 0}
+
+.np-key-tip{display:flex;align-items:flex-start;gap:9px;text-align:left;margin:16px 0 14px;padding:12px;border-radius:11px;background:rgba(112,234,255,.08);border:1px solid rgba(112,234,255,.22);color:#dcecff;font-size:12px;line-height:1.55}
+.np-key-tip>span:first-child{font-size:17px;line-height:1.2}
+.np-key-tip strong{color:#70eaff}
 </style>
 <script>
 (()=>{const box=document.getElementById('npKeyNotice');if(!box)return;const close=()=>{box.hidden=true;document.body.style.overflow='';};const open=()=>{box.hidden=false;document.body.style.overflow='hidden';};document.getElementById('npKeyClose')?.addEventListener('click',close);document.getElementById('npKeyContinue')?.addEventListener('click',close);box.addEventListener('click',e=>{if(e.target===box)close()});document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!box.hidden)close()});window.addEventListener('load',()=>setTimeout(open,5600),{once:true});})();
