@@ -641,24 +641,6 @@ function dodger(){setArea('<p>Move with ← → or A/D to dodge falling stars.</
 function pong(){setArea('<p>Move your paddle with mouse/touch or arrow keys.</p><canvas id="cv" width="520" height="300"></canvas><div id="sc" class="score">Score: 0</div>');setControls('<button class="btn primary" id="again">↻ Restart</button>');let c=$('#cv'),x=c.getContext('2d'),px=210,bx=260,by=150,vx=3,vy=2,score=0,dead=false,keys={},raf;function move(e){let r=c.getBoundingClientRect();px=(e.clientX-r.left)*c.width/r.width-50;px=Math.max(0,Math.min(420,px))}function kd(e){keys[e.key]=true}function ku(e){keys[e.key]=false}c.addEventListener('pointermove',move);document.addEventListener('keydown',kd);document.addEventListener('keyup',ku);function frame(){if(dead)return;if(keys.ArrowLeft)px-=5;if(keys.ArrowRight)px+=5;px=Math.max(0,Math.min(420,px));bx+=vx;by+=vy;if(bx<8||bx>512)vx*=-1;if(by<8)vy*=-1;if(by>260&&by<285&&bx>px&&bx<px+100){playGameSfx('bounce');vy=-Math.abs(vy);score++;$('#sc').textContent='Score: '+score}if(by>300){dead=true;$('#sc').textContent='Game over — score '+score;saveHighScore('Neon Pong',score);return}x.clearRect(0,0,520,300);x.fillStyle='#42f5ff';x.fillRect(px,276,100,8);x.fillStyle='#ff3bd4';x.beginPath();x.arc(bx,by,8,0,Math.PI*2);x.fill();raf=requestAnimationFrame(frame)}raf=requestAnimationFrame(frame);$('#again').onclick=()=>{cleanup();pong()};cleanup=()=>{cancelAnimationFrame(raf);c.removeEventListener('pointermove',move);document.removeEventListener('keydown',kd);document.removeEventListener('keyup',ku)}}
 
 </script>
-<!-- Server-verified common key gate for game download links -->
-<script>
-(()=> {
-  const GATE = 'https://neonplay-download.hatchable.site/';
-  document.addEventListener('click', event => {
-    const link = event.target.closest('a[href]');
-    if (!link || !link.closest('.game')) return;
-    if (!/download/i.test((link.innerText || link.textContent || '').trim())) return;
-    const raw = link.href;
-    if (!/^https:\/\//i.test(raw) || raw.startsWith(GATE)) return;
-    event.preventDefault();
-    event.stopImmediatePropagation();
-    const destination = GATE + '?target=' + encodeURIComponent(raw);
-    if (link.target === '_blank') window.open(destination, '_blank', 'noopener,noreferrer');
-    else window.location.href = destination;
-  }, true);
-})();
-</script>
 <!-- Optional download-key notice; dismissible and does not block the site -->
 <div id="npKeyNotice" class="np-key-overlay" role="dialog" aria-modal="true" aria-labelledby="npKeyTitle" aria-describedby="npKeyDesc" hidden>
   <section class="np-key-card">
