@@ -789,4 +789,27 @@ function pong(){setArea('<p>Move your paddle with mouse/touch or arrow keys.</p>
 })();
 </script>
 
+
+<!-- NEONPLAY_THUMBNAIL_REFRESH_V8: photo-style covers for Android games and arcade titles -->
+<style id="np-thumbnail-refresh-v8">
+/* Use real photographic game imagery as cover art, with a dark overlay for readable labels. */
+.android-cover{background-size:cover!important;background-position:center!important;position:relative;isolation:isolate}
+.android-cover:before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,#080b1840 0%,#080b18d9 100%);z-index:-1}
+.android-cover>span{position:absolute;left:12px;bottom:10px;font-size:.72rem;letter-spacing:.12em;font-weight:900;text-shadow:0 2px 8px #000}
+.android-cover{font-size:0!important}
+.android-red{background-image:url('https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=1000&q=85'),linear-gradient(135deg,#6e1d28,#17162d)!important}
+.android-blue{background-image:url('https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=1000&q=85'),linear-gradient(135deg,#123f6a,#17162d)!important}
+.android-purple{background-image:url('https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=1000&q=85'),linear-gradient(135deg,#4b3271,#17162d)!important}
+.android-green{background-image:url('https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=1000&q=85'),linear-gradient(135deg,#174d36,#17162d)!important}
+.android-cyan{background-image:url('https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=1000&q=85'),linear-gradient(135deg,#0b5360,#17162d)!important}
+/* Give small puzzle/arcade cards richer photo backgrounds too. */
+.cover-2048{background-image:url('https://images.unsplash.com/photo-1509228468518-180dd4864904?auto=format&fit=crop&w=1000&q=85'),linear-gradient(135deg,#4b3213,#24113e)!important;background-size:cover!important;background-position:center!important}
+.cover-hextris{background-image:url('https://images.unsplash.com/photo-1547394765-185e1e68f34e?auto=format&fit=crop&w=1000&q=85'),linear-gradient(135deg,#073c49,#24113e)!important;background-size:cover!important;background-position:center!important}
+.cover-cookie{background-image:url('https://images.unsplash.com/photo-1499636136210-6f4ee915583e?auto=format&fit=crop&w=1000&q=85'),linear-gradient(135deg,#52270e,#29163f)!important;background-size:cover!important;background-position:center!important}
+.anime-art{background-size:cover;background-position:center}
+.anime-card{overflow:hidden}
+.anime-art .character-portrait{filter:drop-shadow(0 8px 18px #0008);transition:transform .25s,filter .25s}
+.anime-card:hover .character-portrait{transform:translateY(-3px) scale(1.04);filter:drop-shadow(0 0 18px #42f5ff66)}
+</style>
+
 </body></html>
