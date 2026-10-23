@@ -295,6 +295,56 @@ footer{margin-top:32px;border-color:#1b3b5a}
 .anime-zone{margin:44px 0;padding:clamp(16px,3vw,30px);border:1px solid #543c87;border-radius:12px;background:radial-gradient(ellipse at 10% 0%,#25205a 0,transparent 45%),radial-gradient(ellipse at 100% 20%,#4a183e 0,transparent 38%),linear-gradient(135deg,#0b1225,#100e22 65%,#0b1428);box-shadow:0 18px 45px #0004;scroll-margin-top:90px}
 .anime-heading{display:flex;align-items:center;justify-content:space-between;gap:20px}.anime-heading h2{font-size:clamp(2rem,4vw,3rem);letter-spacing:-.05em;margin:12px 0}.anime-heading p{max-width:650px;color:#b3b5d3;line-height:1.7}.anime-gradient{background:linear-gradient(90deg,#ff8c42,#ff4caa,#a98bff);color:transparent;background-clip:text}.anime-mark{font-size:clamp(2.5rem,6vw,5rem);color:#ff75b9;text-shadow:0 0 26px #ff4ca855;white-space:nowrap}.anime-mark span{color:#73e9ff;font-size:.6em}.anime-tabs{display:flex;gap:8px;flex-wrap:wrap;margin:20px 0 15px}.anime-tab{border:1px solid #584b82;background:#17152d;color:#c9c5ed;border-radius:6px;padding:9px 13px;font-size:.82rem;font-weight:800}.anime-tab.active{background:linear-gradient(100deg,#4e36a6,#a42c85);border-color:#b47aff;color:#fff}.anime-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.anime-card{min-width:0;overflow:hidden;border:1px solid #433965;border-radius:9px;background:linear-gradient(180deg,#18172f,#0d1426);transition:transform .2s,border-color .2s,box-shadow .2s}.anime-card:hover{transform:translateY(-4px);border-color:#a978ff;box-shadow:0 12px 28px #0005,0 0 18px #9b65ff16}.anime-art{height:155px;position:relative;display:grid;place-items:center;overflow:hidden;isolation:isolate}.anime-art:before{content:"";position:absolute;width:150px;height:150px;border:2px solid #ffffff25;border-radius:50%;box-shadow:0 0 0 16px #ffffff08,0 0 0 34px #ffffff05;transform:scaleX(1.35) rotate(-25deg);z-index:-1}.anime-art:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,#070b1820,#080b18b8);z-index:-1}.art-symbol{font-size:5rem;filter:drop-shadow(0 0 20px #ffffff88);animation:float 3.5s ease-in-out infinite}.art-label{position:absolute;left:12px;top:12px;font-size:.62rem;letter-spacing:.14em;font-weight:950;color:#fff}.art-kanji{position:absolute;right:14px;bottom:3px;font-size:3.8rem;font-weight:900;color:#ffffff25}.art-naruto{background:radial-gradient(circle at 50% 45%,#ff9a3d,#9a381c 48%,#22152e)}.art-sasuke{background:radial-gradient(circle at 50% 45%,#9267ff,#32235f 48%,#10152c)}.art-tanjiro{background:radial-gradient(circle at 50% 45%,#36d9e8,#145078 48%,#11192f)}.art-nezuko{background:radial-gradient(circle at 50% 45%,#ff77b9,#7e285f 48%,#21142f)}.art-zenitsu{background:radial-gradient(circle at 50% 45%,#ffe16a,#ad6a19 48%,#21142f)}.art-kakashi{background:radial-gradient(circle at 50% 45%,#9ab8cc,#354a72 48%,#11172c)}.anime-card-body{padding:14px}.anime-series{font-size:.63rem;letter-spacing:.15em;font-weight:950;color:#ff8fc8}.naruto-card .anime-series{color:#ffb06b}.anime-card h3{margin:5px 0;font-size:1.08rem}.anime-card p{margin:0;color:#a9b5d0;font-size:.82rem;line-height:1.5;min-height:39px}.anime-tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:12px}.anime-tags span{border:1px solid #51436f;border-radius:5px;padding:4px 7px;font-size:.7rem;color:#d8d4f3;background:#ffffff05}.anime-note{margin:18px 0 0;color:#8998b8;font-size:.76rem;line-height:1.6}
 @media(max-width:850px){.anime-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.anime-mark{display:none}}@media(max-width:480px){.anime-zone{padding:14px}.anime-grid{grid-template-columns:1fr}.anime-art{height:175px}.anime-heading h2{font-size:2rem}}
+
+/* NEONPLAY_FULL_ANIME_THEME_V10 */
+:root{--bg:#070711;--panel:#111126;--cyan:#66f7ff;--pink:#ff477e;--purple:#9d72ff;--text:#f7f4ff;--muted:#b8b3d2;--line:#39305b}
+body{background-color:#070711;background-image:radial-gradient(ellipse at 8% 7%,#29114caa,transparent 34%),radial-gradient(ellipse at 92% 18%,#58132c66,transparent 30%),radial-gradient(ellipse at 52% 65%,#102f4a55,transparent 42%),linear-gradient(180deg,#070711,#0b0b1c 48%,#080711);background-attachment:fixed}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;opacity:.16;background-image:linear-gradient(115deg,transparent 0 48%,#a879ff 49%,transparent 50%),linear-gradient(25deg,transparent 0 48%,#42f5ff 49%,transparent 50%);background-size:190px 240px,260px 310px;mask-image:linear-gradient(to bottom,black,transparent 70%)}
+nav{border-bottom:1px solid #a879ff44;background:linear-gradient(90deg,#090918f2,#151027f2,#090918f2);box-shadow:0 8px 35px #0006}
+.logo{letter-spacing:.07em;text-shadow:0 0 20px #9d72ff55}
+.logo b{color:#66f7ff;text-shadow:0 0 15px #66f7ff99}
+.links a{transition:color .18s,text-shadow .18s}
+.links a:hover{color:#ff79a2;text-shadow:0 0 12px #ff477e88}
+.hero{position:relative}
+.hero:before{content:"ANIME • ARCADE • BATTLE";display:block;position:absolute;top:22px;left:0;color:#ff82a8;font-size:.7rem;font-weight:900;letter-spacing:.25em;opacity:.8}
+.hero h1{filter:drop-shadow(0 0 24px #9d72ff18)}
+.gradient{background-image:linear-gradient(90deg,#66f7ff,#a879ff 42%,#ff709d 75%,#ffcb7a);background-size:200% auto;animation:anime-shimmer 7s linear infinite}
+@keyframes anime-shimmer{to{background-position:200% center}}
+.art{border-color:#9d72ff77;background:radial-gradient(circle at 50% 40%,#542c78 0,#20214b 35%,#120f28 72%);box-shadow:inset 0 0 80px #9d72ff22,0 18px 55px #0008,0 0 25px #9d72ff12}
+.art:before,.art:after{border-color:#ff477e77;box-shadow:0 0 22px #ff477e22}
+.controller{filter:drop-shadow(0 0 18px #66f7ff99) drop-shadow(0 0 32px #9d72ff88)}
+.stat,.game,.addpanel,.info{border-color:#9d72ff3d}
+.stat{background:linear-gradient(145deg,#17152fdd,#101023ee)}
+.stat strong{color:#66f7ff;text-shadow:0 0 12px #66f7ff33}
+.head h2{color:#f7f4ff;text-shadow:0 0 22px #9d72ff24}
+.head h2:after{content:" ✦";font-size:.7em;color:#ff709d}
+.game{background:linear-gradient(145deg,#17162fef,#0b0c1dee);border-color:#9d72ff3d;box-shadow:0 12px 32px #0005,inset 0 1px #ffffff08}
+.game:hover{border-color:#ff477e99;box-shadow:0 18px 38px #0007,0 0 25px #9d72ff1b}
+.cover{background-image:radial-gradient(circle at 50% 55%,#66f7ff22,transparent 52%),linear-gradient(135deg,#152e50,#301641)}
+.cover:after{background:linear-gradient(90deg,transparent,#ff709d,#66f7ff,transparent);height:2px}
+.cover.pinkbg{background-image:radial-gradient(circle at 50% 50%,#ff477e55,transparent 56%),linear-gradient(135deg,#4a1238,#191332)}
+.cover.purplebg{background-image:radial-gradient(circle at 50% 50%,#9d72ff55,transparent 56%),linear-gradient(135deg,#28144c,#102b45)}
+.cover.orangebg{background-image:radial-gradient(circle at 50% 50%,#ffb14b44,transparent 56%),linear-gradient(135deg,#512312,#251433)}
+.cover.greenbg{background-image:radial-gradient(circle at 50% 50%,#42ffb544,transparent 56%),linear-gradient(135deg,#073b3b,#172142)}
+.tag,.pill{border-color:#9d72ff77;color:#8efaff;background:#9d72ff0c}
+.btn{border-radius:10px}
+.primary{background:linear-gradient(110deg,#66f7ff,#a879ff);box-shadow:0 0 22px #66f7ff20}
+.pink{background:linear-gradient(110deg,#ff477e,#9d72ff)}
+.secondary{border-color:#9d72ff55;background:#9d72ff0c}
+input,select,textarea{border-color:#49406b!important;background:#0d0c20!important}
+input:focus,select:focus,textarea:focus{border-color:#66f7ff!important;box-shadow:0 0 0 3px #66f7ff18!important}
+.addpanel{background:linear-gradient(145deg,#17152f,#0b0c20)}
+.info{background:linear-gradient(120deg,#21132de8,#11162be8);border-color:#ff477e55}
+.modal{backdrop-filter:blur(8px)}
+.box{border-color:#9d72ff88;background:linear-gradient(145deg,#17152f,#0b0c20);box-shadow:0 0 65px #9d72ff20}
+.area{border-color:#39305b;background:#070711}
+footer{border-top-color:#9d72ff44}
+#anime{position:relative}
+#anime .anime-card{border-color:#9d72ff55;box-shadow:0 12px 30px #0005}
+#anime .anime-card:hover{border-color:#ff477eaa;box-shadow:0 0 30px #9d72ff22}
+@media(max-width:760px){.hero:before{top:8px;font-size:.6rem;letter-spacing:.15em}}
+@media(prefers-reduced-motion:reduce){.gradient{animation:none}*,*:before,*:after{scroll-behavior:auto!important;transition:none!important}}
+
 </style></head><body><div class="wrap">
 <nav><a class="logo" href="#"><b>NEON</b>PLAY<span style="color:var(--pink)">.</span></a><div class="links"><a href="#games">PC &amp; Web</a><a href="#android">📱 Android Zone</a><a href="#anime">⛩️ Anime Zone</a><a href="#about">About</a><a href="#publish">Hosting</a></div><button class="player-chip" id="profileButton" type="button">👤 Player</button><button class="btn secondary" id="soundToggle" type="button" aria-pressed="false">🔇 Sound Off</button><a class="btn secondary" href="#games">Enter Arcade ↗</a></nav>
 <section class="hero"><div><span class="pill">✦ Your browser arcade</span><h1>PLAY IN<br><span class="gradient">A NEW LIGHT.</span></h1><p>Jump into quick arcade challenges, chase high scores, and play instantly. No installs or accounts needed for these mini-games.</p><div class="actions"><a class="btn primary" href="#games">▶ Explore games</a><a class="btn secondary" href="#publish">Publish online ↓</a></div></div><div class="art"><div class="controller">🎮</div></div></section>
