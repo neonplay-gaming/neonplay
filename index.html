@@ -306,7 +306,66 @@ footer{margin-top:32px;border-color:#1b3b5a}
 .anime-card{overflow:hidden}
 @media(max-width:520px){.anime-art{height:210px!important}.character-portrait{height:94%;width:94%}}
 
-</style></head><body><div class="wrap">
+
+/* NEONPLAY_WALKING_ANIME_LOADER_V13 */
+#animeWalkLoader{position:fixed;inset:0;z-index:99999;display:grid;place-items:center;overflow:hidden;background:radial-gradient(ellipse at 50% 42%,#17284c 0%,#090d1b 68%,#050711 100%);transition:opacity .45s ease,visibility .45s ease}
+#animeWalkLoader.is-gone{opacity:0;visibility:hidden;pointer-events:none}
+#animeWalkLoader .loader-stars{position:absolute;inset:0;opacity:.55;background-image:radial-gradient(circle,#fff 1px,transparent 1.6px),radial-gradient(circle,#64eaff 1px,transparent 1.7px);background-size:79px 79px,113px 113px;background-position:0 0,34px 42px}
+#animeWalkLoader .loader-content{position:relative;z-index:1;width:min(560px,94vw);text-align:center;padding:28px 14px 54px}
+#animeWalkLoader .loader-title{font-size:clamp(1.3rem,4vw,2rem);font-weight:950;letter-spacing:.08em;color:#f5f7ff;text-shadow:0 0 22px #42f5ff44}
+#animeWalkLoader .loader-subtitle{margin-top:8px;color:#aebcda;font-size:.9rem}
+#animeWalkLoader .walk-track{position:relative;height:190px;margin:8px auto 0;max-width:500px;overflow:hidden}
+#animeWalkLoader .walk-track:before{content:"";position:absolute;left:0;right:0;bottom:23px;height:2px;background:linear-gradient(90deg,transparent,var(--walker-glow,#42f5ff),#ff4b9b,transparent);box-shadow:0 0 15px var(--walker-glow,#42f5ff)}
+#animeWalkLoader .walker{position:absolute;left:-115px;bottom:24px;width:112px;height:160px;animation:anime-walk-across 2.65s linear forwards;filter:drop-shadow(0 0 12px var(--walker-glow,#42f5ff))}
+#animeWalkLoader .walker svg{width:100%;height:100%;overflow:visible}
+#animeWalkLoader .walker .leg-a,#animeWalkLoader .walker .leg-b,#animeWalkLoader .walker .arm-a,#animeWalkLoader .walker .arm-b{transform-box:fill-box;transform-origin:top center}
+#animeWalkLoader .walker .leg-a{animation:anime-leg-a .34s ease-in-out infinite alternate}
+#animeWalkLoader .walker .leg-b{animation:anime-leg-b .34s ease-in-out infinite alternate}
+#animeWalkLoader .walker .arm-a{animation:anime-arm-a .34s ease-in-out infinite alternate}
+#animeWalkLoader .walker .arm-b{animation:anime-arm-b .34s ease-in-out infinite alternate}
+#animeWalkLoader .walker .body-bob{animation:anime-body-bob .34s ease-in-out infinite alternate}
+#animeWalkLoader .loader-progress{height:4px;width:min(300px,75vw);margin:0 auto;background:#ffffff18;border-radius:9px;overflow:hidden}
+#animeWalkLoader .loader-progress:after{content:"";display:block;height:100%;width:35%;border-radius:9px;background:linear-gradient(90deg,var(--walker-glow,#42f5ff),#ff4b9b);animation:anime-loader-progress 2.2s ease-in-out infinite}
+@keyframes anime-walk-across{0%{left:-115px}100%{left:calc(100% + 10px)}}
+@keyframes anime-leg-a{from{transform:rotate(28deg)}to{transform:rotate(-28deg)}}
+@keyframes anime-leg-b{from{transform:rotate(-28deg)}to{transform:rotate(28deg)}}
+@keyframes anime-arm-a{from{transform:rotate(-32deg)}to{transform:rotate(30deg)}}
+@keyframes anime-arm-b{from{transform:rotate(30deg)}to{transform:rotate(-32deg)}}
+@keyframes anime-body-bob{from{transform:translateY(0)}to{transform:translateY(-4px)}}
+@keyframes anime-loader-progress{0%{transform:translateX(-120%)}100%{transform:translateX(390%)}}
+@media(prefers-reduced-motion:reduce){#animeWalkLoader .walker,#animeWalkLoader .walker * ,#animeWalkLoader .loader-progress:after{animation-duration:1ms!important;animation-iteration-count:1!important}}
+</style></head><body>
+<div id="animeWalkLoader" role="status" aria-live="polite" aria-label="NeonPlay is loading">
+ <div class="loader-stars" aria-hidden="true"></div>
+ <div class="loader-content">
+  <div class="loader-title">NEONPLAY <span style="color:var(--walker-glow,#42f5ff)">UNIVERSE</span></div>
+  <div class="loader-subtitle" id="animeWalkerName">Your anime visitor is arriving…</div>
+  <div class="walk-track" aria-hidden="true">
+   <div class="walker" id="animeWalker">
+    <svg viewBox="0 0 120 170" role="img" aria-label="Original animated anime-style character">
+     <g class="leg-a"><path d="M51 112 L47 139 L37 153" fill="none" stroke="#202943" stroke-width="13" stroke-linecap="round"/><path d="M27 154 Q37 149 45 155 L43 162 L22 162Z" fill="var(--walker-accent,#ff4b9b)"/></g>
+     <g class="leg-b"><path d="M68 112 L74 138 L84 151" fill="none" stroke="#202943" stroke-width="13" stroke-linecap="round"/><path d="M77 153 Q86 147 94 154 L99 161 L78 161Z" fill="var(--walker-accent,#ff4b9b)"/></g>
+     <g class="body-bob">
+      <path d="M43 70 Q60 62 77 70 L83 113 Q60 123 37 113Z" fill="var(--walker-outfit,#276baf)" stroke="#dbeaff" stroke-opacity=".5" stroke-width="2"/>
+      <path d="M46 75 L59 86 L73 74 L69 109 L52 109Z" fill="var(--walker-accent,#ff4b9b)" opacity=".9"/>
+      <g class="arm-a"><path d="M43 75 L32 96 L25 106" fill="none" stroke="var(--walker-outfit,#276baf)" stroke-width="12" stroke-linecap="round"/><circle cx="24" cy="108" r="6" fill="#f2c6a7"/></g>
+      <g class="arm-b"><path d="M77 75 L88 94 L96 101" fill="none" stroke="var(--walker-outfit,#276baf)" stroke-width="12" stroke-linecap="round"/><circle cx="98" cy="103" r="6" fill="#f2c6a7"/></g>
+      <path d="M39 37 Q35 12 60 11 Q86 12 82 40 L78 60 Q60 78 42 59Z" fill="var(--walker-hair,#22243e)"/>
+      <ellipse cx="60" cy="43" rx="20" ry="24" fill="#f2c6a7"/>
+      <path d="M40 39 L36 20 L49 27 L54 10 L65 25 L79 16 L82 39 L72 32 L63 37 L52 31Z" fill="var(--walker-hair,#22243e)"/>
+      <path d="M46 45 L55 47 M65 47 L74 44" stroke="#22243e" stroke-width="2.5" stroke-linecap="round"/>
+      <circle cx="51" cy="44" r="2.4" fill="var(--walker-glow,#42f5ff)"/><circle cx="69" cy="44" r="2.4" fill="var(--walker-glow,#42f5ff)"/>
+      <path d="M55 55 Q60 59 65 54" fill="none" stroke="#a65362" stroke-width="2" stroke-linecap="round"/>
+      <path d="M43 36 Q60 29 77 36" fill="none" stroke="var(--walker-accent,#ff4b9b)" stroke-width="4"/>
+      <path d="M48 66 L60 76 L72 66" fill="none" stroke="#f2c6a7" stroke-width="4"/>
+     </g>
+    </svg>
+   </div>
+  </div>
+  <div class="loader-progress" aria-hidden="true"></div>
+ </div>
+</div>
+<div class="wrap">
 <nav><a class="logo" href="#"><b>NEON</b>PLAY<span style="color:var(--pink)">.</span></a><div class="links"><a href="#games">PC &amp; Web</a><a href="#android">📱 Android Zone</a><a href="#anime">⛩️ Anime Zone</a><a href="#about">About</a><a href="#publish">Hosting</a></div><button class="player-chip" id="profileButton" type="button">👤 Player</button><button class="btn secondary" id="soundToggle" type="button" aria-pressed="false">🔇 Sound Off</button><a class="btn secondary" href="#games">Enter Arcade ↗</a></nav>
 <section class="hero"><div><span class="pill">✦ Your browser arcade</span><h1>PLAY IN<br><span class="gradient">A NEW LIGHT.</span></h1><p>Jump into quick arcade challenges, chase high scores, and play instantly. No installs or accounts needed for these mini-games.</p><div class="actions"><a class="btn primary" href="#games">▶ Explore games</a><a class="btn secondary" href="#publish">Publish online ↓</a></div></div><div class="art"><div class="controller">🎮</div></div></section>
 <section class="featured"><div class="featured-art"><span class="featured-orbit"></span><span class="featured-emoji">🐍</span><span class="featured-label">FEATURED ARCADE PICK</span></div><div class="featured-copy"><span class="pill">READY TO PLAY</span><h2>One more round.<br><span class="gradient">One more high score.</span></h2><p>Start with Neon Snake: collect glowing orbs, avoid your tail, and see how long you can survive. Lightweight, instant, and built right into NeonPlay.</p><button class="btn primary" type="button" onclick="launch('snake')">▶ Play Neon Snake</button></div></section><div class="stats"><div class="stat"><strong id="gameCount">20+</strong><span>Games listed</span></div><div class="stat"><strong>FREE</strong><span>Play in your browser</span></div><div class="stat"><strong>NO API</strong><span>No key required</span></div></div>
@@ -374,6 +433,32 @@ footer{margin-top:32px;border-color:#1b3b5a}
 <div class="auth-overlay" id="authOverlay" role="dialog" aria-modal="true" aria-labelledby="authTitle"><div class="auth-panel"><div class="modalhead"><h2 id="authTitle">Player account</h2><button class="btn secondary" id="closeAuth" type="button" aria-label="Close">✕</button></div><p>Create an online account with your email. Email verification may be required.</p><form id="authForm"><label for="authName">Email address</label><input id="authName" type="email" maxlength="254" autocomplete="email" placeholder="you@example.com" required><label for="authPassword">Password</label><input id="authPassword" type="password" minlength="8" autocomplete="current-password" placeholder="At least 8 characters" required><div class="auth-row"><button class="btn primary" type="submit" id="authSubmit">Sign in</button><button class="btn secondary" type="button" id="signupMode">Create account</button></div></form><p class="auth-note" id="authStatus">Connecting online account service…</p><div id="profileEditor" class="profile-editor"><label for="displayNameInput">Player display name</label><input id="displayNameInput" maxlength="24" placeholder="Your gamer name" autocomplete="nickname"><button class="btn secondary" id="saveProfile" type="button">Save profile name</button><p class="auth-note">Signed-in names sync online. Guest names stay in this browser.</p></div><button class="btn secondary" id="signOut" type="button">Sign out</button></div></div>
 <div class="detail-overlay" id="detailOverlay" role="dialog" aria-modal="true" aria-labelledby="detailTitle"><div class="detail-panel"><div class="modalhead"><h2 id="detailTitle">Game details</h2><button class="btn secondary" id="closeDetails" type="button">✕ Close</button></div><p id="detailDescription"></p><p id="detailCategory"></p><div class="detail-actions" id="detailActions"></div></div></div><div class="modal" id="modal" role="dialog" aria-modal="true"><div class="box"><div class="modalhead"><h2 id="modalTitle">Game</h2><button class="btn secondary" onclick="closeGame()">✕ Close</button></div><div class="area" id="area"></div><div class="controls" id="controls"></div></div></div>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script>
+/* NEONPLAY_WALKING_ANIME_LOADER_V13 */
+(function(){
+ const loader=document.getElementById('animeWalkLoader');
+ if(!loader)return;
+ const cast=[
+  {name:'Crimson Ninja',hair:'#20213a',outfit:'#cf344b',accent:'#ffcf55',glow:'#ff525f'},
+  {name:'Moonlight Swordswoman',hair:'#30213f',outfit:'#6939a8',accent:'#f58fc5',glow:'#d38bff'},
+  {name:'Storm Runner',hair:'#e7c34b',outfit:'#d59b27',accent:'#fff0a2',glow:'#ffe16a'},
+  {name:'Ocean Guardian',hair:'#174a7a',outfit:'#237fa4',accent:'#4cf1ee',glow:'#42f5ff'},
+  {name:'Forest Spirit',hair:'#173c32',outfit:'#24805b',accent:'#a9f27b',glow:'#6cffb0'},
+  {name:'Shadow Wanderer',hair:'#171923',outfit:'#42465b',accent:'#ff668f',glow:'#ff668f'},
+  {name:'Star Mage',hair:'#6c345f',outfit:'#4d3a9c',accent:'#ffb4e7',glow:'#d89cff'}
+ ];
+ const pick=cast[Math.floor(Math.random()*cast.length)];
+ loader.style.setProperty('--walker-hair',pick.hair);
+ loader.style.setProperty('--walker-outfit',pick.outfit);
+ loader.style.setProperty('--walker-accent',pick.accent);
+ loader.style.setProperty('--walker-glow',pick.glow);
+ const label=document.getElementById('animeWalkerName');
+ if(label)label.textContent=pick.name+' is entering the arcade…';
+ const hide=()=>{setTimeout(()=>loader.classList.add('is-gone'),900);setTimeout(()=>{if(loader.parentNode)loader.remove()},1450)};
+ if(document.readyState==='complete')hide();
+ else window.addEventListener('load',hide,{once:true});
+ setTimeout(hide,3200);
+})();
+
 const $=s=>document.querySelector(s);let cleanup=null;$('#year').textContent=new Date().getFullYear();
 let activeFilter='all';function filterGames(){const q=$('#search').value.trim().toLowerCase();document.querySelectorAll('.game').forEach(card=>{const name=(card.dataset.name||'').toLowerCase(),tag=(card.querySelector('.tag')?.textContent||'').toLowerCase(),type=(card.dataset.category||'').toLowerCase();const textMatch=name.includes(q)||tag.includes(q);const categoryMatch=activeFilter==='all'||(activeFilter==='arcade'&&['arcade','speed','survival','classic'].includes(tag))||(activeFilter==='puzzle'&&(tag==='puzzle'||type==='puzzle'))||(activeFilter==='casual'&&(tag==='casual'||type==='casual'))||(activeFilter==='action'&&(/coming soon/.test(tag)||/action|adventure/.test(type)||/hero|red dead|grand theft|gta/.test(name)))||(activeFilter==='downloads'&&(type==='downloads'||/windows|pc games|coming soon/.test(tag)||/red dead|grand theft|gta|hero academia/.test(name)));card.classList.toggle('hidden',!(textMatch&&categoryMatch));});}$('#search').addEventListener('input',filterGames);document.querySelector('.store-sidebar')?.addEventListener('click',e=>{const b=e.target.closest('[data-side-filter]');if(!b)return;document.querySelectorAll('.side-link').forEach(x=>x.classList.toggle('active',x===b));const mode=b.dataset.sideFilter;if(mode==='android'){document.querySelector('#android')?.scrollIntoView({behavior:'smooth'});return;}document.querySelector('#filters [data-filter="'+mode+'"]')?.click();});$('#filters').addEventListener('click',e=>{const b=e.target.closest('[data-filter]');if(!b)return;activeFilter=b.dataset.filter;$('#filters').querySelectorAll('.filter').forEach(x=>x.classList.toggle('active',x===b));filterGames();});
 function closeGame(){if(cleanup){cleanup();cleanup=null}$('#modal').classList.remove('open');$('#area').innerHTML='';$('#controls').innerHTML=''}
