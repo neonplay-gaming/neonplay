@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://neonplay-gaming.github.io/neonplay/sitemap.xml
