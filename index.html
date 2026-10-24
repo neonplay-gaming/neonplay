@@ -1818,4 +1818,49 @@ body:after{content:""!important;display:block!important;position:fixed!important
 @keyframes np-rgb-edge-spin{to{--np-rgb-angle:360deg}}
 @media(prefers-reduced-motion:reduce){body:after{animation:none!important}}
 </style>
+<style id="neonplay-premium-upgrade-v7">
+/* NEONPLAY_PREMIUM_UPGRADE_V7 */
+/* Premium cohesive design layer — no game data, links, auth, or Supabase logic changed */
+:root{--np-cyan:#42f5ff;--np-pink:#ff3bd4;--np-violet:#9b7bff;--np-glass:rgba(13,19,39,.78)}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{background-color:#060710!important;background-image:radial-gradient(ellipse at 8% 8%,rgba(0,238,255,.12),transparent 34%),radial-gradient(ellipse at 92% 12%,rgba(255,45,212,.11),transparent 34%),radial-gradient(ellipse at 50% 100%,rgba(124,77,255,.10),transparent 42%),linear-gradient(180deg,#070914,#090b18 55%,#060710)!important}
+.wrap{width:min(1200px,92%)}
+nav{border-bottom:1px solid #42f5ff26;box-shadow:0 8px 32px #0003}
+.links a{transition:color .2s,text-shadow .2s}.links a:hover{color:var(--np-cyan);text-shadow:0 0 12px #42f5ff77}
+.logo{letter-spacing:.025em}.logo b{animation:np-premium-hue 9s linear infinite;text-shadow:0 0 10px #42f5ff88,0 0 22px #42f5ff44}
+.hero{gap:clamp(24px,4vw,56px);padding-top:clamp(42px,7vw,82px)}
+.hero h1{max-width:760px;text-shadow:0 8px 45px #0007}
+.pill{background:#42f5ff0a;box-shadow:inset 0 0 18px #42f5ff0b}
+.art{border-color:#42f5ff66!important;background:radial-gradient(circle at 50% 45%,#1c3760 0,#181632 46%,#100c20 80%)!important;box-shadow:inset 0 0 65px #42f5ff12,0 18px 60px #0006,0 0 24px #42f5ff12!important;animation:np-premium-hue 18s linear infinite alternate}
+.art:before{box-shadow:0 0 25px #42f5ff18}.controller{filter:drop-shadow(0 0 22px #42f5ff99) drop-shadow(0 0 34px #ff3bd433)}
+.stat{border-color:#ffffff17;background:linear-gradient(145deg,#ffffff0b,#ffffff03);backdrop-filter:blur(8px)}
+.stat strong{ text-shadow:0 0 15px #42f5ff44}
+.featured{border-color:#42f5ff42;background:linear-gradient(120deg,#101b32f2,#171027f2);box-shadow:0 20px 55px #0004,0 0 28px #42f5ff09;transition:border-color .25s,box-shadow .25s}
+.featured:hover{border-color:#42f5ff77;box-shadow:0 22px 60px #0005,0 0 26px #42f5ff16}
+.featured-art{box-shadow:inset 0 0 42px #42f5ff10}
+.game{position:relative;border-color:#ffffff19;background:linear-gradient(150deg,rgba(20,28,51,.96),rgba(9,13,28,.96));transition:transform .24s ease,border-color .24s ease,box-shadow .24s ease}
+.game:focus-within{border-color:#42f5ff99;box-shadow:0 0 0 2px #42f5ff18}
+.game:hover{border-color:#42f5ff99!important;box-shadow:0 16px 36px #0006,0 0 22px #42f5ff15,0 0 28px #ff3bd40a!important}
+.cover{background-blend-mode:screen,normal}
+.body h3{letter-spacing:-.02em}
+.tag{background:#42f5ff0a}
+.btn{border-radius:12px}
+.primary{box-shadow:0 0 16px #42f5ff16}
+.primary:hover{box-shadow:0 0 22px #42f5ff44,0 0 34px #42f5ff16}
+.pink:hover{box-shadow:0 0 22px #ff3bd444,0 0 34px #ff3bd416}
+.secondary:hover{border-color:#42f5ff66;color:#fff;box-shadow:0 0 18px #42f5ff12}
+input,select,textarea{transition:border-color .2s,box-shadow .2s}
+input:focus,select:focus,textarea:focus{outline:none;border-color:#42f5ff99!important;box-shadow:0 0 0 3px #42f5ff17,0 0 16px #42f5ff0c}
+#youtube-hub{border:1px solid #ff3bd43b;border-radius:22px;padding:clamp(18px,3vw,30px);background:radial-gradient(ellipse at 100% 0%,#ff3bd410,transparent 48%),linear-gradient(145deg,#151126,#0d1223);box-shadow:0 16px 44px #0003}
+#profileEditor,.np3-profile-card,#np3-profile-open{scroll-margin-top:90px}
+.info,.addpanel{backdrop-filter:blur(10px);box-shadow:0 18px 45px #0003}
+footer{border-color:#42f5ff20}
+.np-top-channel{padding-top:9px;text-align:right;font-size:.8rem;color:#aab6d1}
+.np-top-channel a{display:inline-block;padding:6px 10px;border:1px solid #ff3bd44a;border-radius:99px;background:#ff3bd40a;color:#ffd8f6;transition:box-shadow .2s,border-color .2s}
+.np-top-channel a:hover{border-color:#ff3bd4;box-shadow:0 0 18px #ff3bd42a}
+@keyframes np-premium-hue{0%{filter:hue-rotate(0deg)}100%{filter:hue-rotate(360deg)}}
+@media(max-width:760px){.hero{gap:22px}.stats{margin-bottom:34px}.featured{padding:13px}.head{gap:10px}}
+@media(max-width:520px){.wrap{width:91%}.hero{padding-top:36px}.art{border-radius:20px}.game{border-radius:14px}.buttons .btn{min-height:42px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.logo b,.art{animation:none!important}.game,.featured,.btn{transition:none!important}}
+</style>
 </body></html>
