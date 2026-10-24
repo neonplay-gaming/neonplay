@@ -581,7 +581,7 @@ button.primary:hover,.btn.primary:hover,a.btn.primary:hover{box-shadow:0 0 20px 
 @media(max-width:380px){.np-popular-grid{gap:9px}.np-popular-info{padding:9px}}
 </style>
 <script id="np-popular-first-script">
-(function(){
+document.addEventListener('DOMContentLoaded',function(){
  const root=document.getElementById('np-popular-grid');
  const grid=document.getElementById('grid');
  if(!root||!grid)return;
@@ -614,7 +614,7 @@ button.primary:hover,.btn.primary:hover,a.btn.primary:hover{box-shadow:0 0 20px 
   });
   root.append(item);
  });
-})();
+});
 </script>
 
 <section class="hero"><div><span class="pill">✦ YOUR NEXT GAME STARTS HERE</span><h1>Find a game.<br><span class="gradient">Press play.</span></h1><p>Play mini-games instantly, discover PC and Android games, and follow simple step-by-step guides. No confusing menus—just choose what you want to do.</p><form class="hero-search" id="heroSearchForm" role="search"><label for="heroSearch">What do you want to play?</label><div class="hero-search-row"><input id="heroSearch" type="search" placeholder="Search a game…" autocomplete="off"><button class="btn primary" type="submit">Find game ↗</button></div></form><div class="actions"><a class="btn primary" href="#browser-arcade">▶ Play instantly</a><a class="btn secondary" href="./install-guides.html">📘 Install guides</a><a class="btn secondary" href="#android">📱 Android games</a></div></div><div class="art"><div class="controller" aria-hidden="true">🎮</div><span class="hero-art-caption">PLAY • DISCOVER • LEVEL UP</span></div></section>
