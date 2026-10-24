@@ -489,7 +489,8 @@ footer{border-top-color:#ffffff15}
 @media(max-width:620px){#np-xp-zone .np-xp-layout{grid-template-columns:1fr}#np-xp-zone .np-wheel{width:min(76vw,250px)}#np-xp-zone .np-wheel-labels span:nth-child(1){transform:translateY(-80px)}#np-xp-zone .np-wheel-labels span:nth-child(2){transform:translate(56px,-56px) rotate(45deg)}#np-xp-zone .np-wheel-labels span:nth-child(3){transform:translateX(80px) rotate(90deg)}#np-xp-zone .np-wheel-labels span:nth-child(4){transform:translate(56px,44px) rotate(135deg)}#np-xp-zone .np-wheel-labels span:nth-child(5){transform:translateY(60px) rotate(180deg)}#np-xp-zone .np-wheel-labels span:nth-child(6){transform:translate(-56px,44px) rotate(225deg)}#np-xp-zone .np-wheel-labels span:nth-child(7){transform:translateX(-80px) rotate(270deg)}#np-xp-zone .np-wheel-labels span:nth-child(8){transform:translate(-56px,-56px) rotate(315deg)}}
 @media(prefers-reduced-motion:reduce){#np-xp-zone .np-wheel,#np-xp-zone .np-xp-progress span{transition:none}}
 
-</style></head><body>
+</style>
+<meta name="robots" content="index,follow,max-image-preview:large"><meta name="keywords" content="NEONPLAY, browser games, PC game installation guides, gaming downloads, free arcade games"><meta name="author" content="NEONPLAY"><meta property="og:locale" content="en_IN"><meta name="twitter:site" content="@NeonPlay-r3z"><link rel="manifest" href="./manifest.webmanifest"><link rel="icon" type="image/svg+xml" href="./neonplay-icon.svg"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><meta name="application-name" content="NEONPLAY"><script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","name":"NEONPLAY","url":"https://neonplay-gaming.github.io/neonplay/","description":"Neon-themed browser arcade, PC game installation guides and gaming resources.","inLanguage":["en","hi"]},{"@type":"WebApplication","name":"NEONPLAY","url":"https://neonplay-gaming.github.io/neonplay/","applicationCategory":"GameApplication","operatingSystem":"Windows, Android, macOS, Linux","description":"Browser arcade games and PC game installation guides. Compatibility varies by game."}]}</script></head><body>
 <div class="wrap">
 <div class="np-top-channel"><a href="https://www.youtube.com/@NeonPlay-r3z" target="_blank" rel="noopener noreferrer" aria-label="Visit NEONPLAY YouTube channel">YouTube: <strong>@NeonPlay-r3z</strong> ↗</a></div>
 <nav><a class="logo" href="#"><b>NEON</b>PLAY<span style="color:var(--pink)">.</span></a><div class="links"><a href="#games">PC &amp; Web</a><a href="./install-guides.html">Install Guides</a><a href="#android">📱 Android Zone</a><a href="#np-anime-zone-section">Anime Zone</a><a href="#about">About</a><a href="#publish">Hosting</a></div><button class="player-chip" id="profileButton" type="button">👤 Player</button><button class="btn secondary" id="soundToggle" type="button" aria-pressed="false">🔇 Sound Off</button><a class="btn secondary" href="#games">Enter Arcade ↗</a></nav>
@@ -1638,6 +1639,93 @@ document.addEventListener('click',e=>{if(e.target.closest('#np-xp-spin'))setTime
  });
  addShareButtons();addSearchHint();
  const grid=$('grid');if(grid)new MutationObserver(addShareButtons).observe(grid,{childList:true,subtree:true});
+})();
+</script>
+
+
+<!-- NEONPLAY_UPDATE_5_0: reviews, download clarity, installable PWA -->
+<style id="np-update-5-style">
+#np5-reviews{margin:36px 0;padding:22px;border:1px solid #42f5ff45;border-radius:20px;background:linear-gradient(140deg,#101a32,#0c1021)}
+#np5-reviews h2,#np5-downloads h2{margin:0 0 7px}#np5-reviews p,#np5-downloads p{color:var(--muted)}
+.np5-review-form{display:grid;grid-template-columns:1fr 160px;gap:10px;margin:16px 0}
+.np5-review-form input,.np5-review-form select,.np5-review-form textarea{width:100%;min-width:0}
+.np5-review-form textarea{grid-column:1/-1;min-height:86px;resize:vertical}
+.np5-review-form .wide{grid-column:1/-1}
+.np5-review-list{display:grid;gap:10px;margin-top:16px}
+.np5-review{padding:13px;border:1px solid #ffffff1c;border-radius:12px;background:#ffffff06}
+.np5-review strong{color:var(--cyan)}.np5-review small{color:var(--muted)}.np5-review p{margin:8px 0 0;white-space:pre-wrap;overflow-wrap:anywhere}
+#np5-status{min-height:1.5em;color:var(--cyan);font-size:.9rem}
+#np5-downloads{margin:30px 0;padding:20px;border:1px solid #a879ff55;border-radius:18px;background:#14112a}
+.np5-checklist{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:14px 0}
+.np5-check{padding:12px;border:1px solid #ffffff20;border-radius:12px;background:#ffffff06}
+.np5-check strong{display:block;color:var(--text)}.np5-check span{font-size:.86rem;color:var(--muted)}
+.np5-download-label{font-size:.78rem;color:var(--cyan);font-weight:800;letter-spacing:.04em}
+@media(max-width:600px){.np5-review-form,.np5-checklist{grid-template-columns:1fr}.np5-review-form textarea,.np5-review-form .wide{grid-column:auto}}
+</style>
+<section id="np5-downloads" aria-labelledby="np5-download-title">
+ <h2 id="np5-download-title">⬇️ Download &amp; compatibility checklist</h2>
+ <p>Before downloading, check the game's own guide and the publisher/store page. Requirements differ by title, so NEONPLAY won't guess missing specs or mark a link as verified without checking it.</p>
+ <div class="np5-checklist">
+  <div class="np5-check"><strong>1. Check the platform</strong><span>Confirm Windows / Android / browser support on the game's guide or official source.</span></div>
+  <div class="np5-check"><strong>2. Check requirements</strong><span>Use the official page for CPU, RAM, graphics, storage and OS requirements; if not listed, treat them as unspecified.</span></div>
+  <div class="np5-check"><strong>3. Verify the source</strong><span>Prefer the publisher or official store. Avoid installers that ask you to disable antivirus.</span></div>
+  <div class="np5-check"><strong>4. Install safely</strong><span>Scan files, read the install guide, and keep the original download URL shown on the game card.</span></div>
+ </div>
+ <p class="np5-download-label">GAME LISTINGS PRESERVED · EXISTING DOWNLOAD LINKS UNCHANGED</p>
+</section>
+<section id="np5-reviews" aria-labelledby="np5-reviews-title">
+ <h2 id="np5-reviews-title">⭐ Player reviews &amp; ratings</h2>
+ <p>Reviews are linked to the signed-in account. Published reviews are visible to visitors. Please keep feedback useful and respectful.</p>
+ <form id="np5-review-form" class="np5-review-form">
+  <input id="np5-game" maxlength="60" placeholder="Game name (must match a listed game)" aria-label="Game name" required>
+  <select id="np5-rating" aria-label="Rating" required><option value="">Rating…</option><option value="5">★★★★★ — 5</option><option value="4">★★★★☆ — 4</option><option value="3">★★★☆☆ — 3</option><option value="2">★★☆☆☆ — 2</option><option value="1">★☆☆☆☆ — 1</option></select>
+  <textarea id="np5-comment" class="wide" maxlength="800" placeholder="Your review (10–800 characters)" aria-label="Your review" required></textarea>
+  <button class="btn primary wide" type="submit">Post review</button>
+ </form>
+ <div id="np5-status" role="status" aria-live="polite">Loading recent reviews…</div>
+ <div id="np5-review-list" class="np5-review-list"></div>
+</section>
+<script id="np-update-5-script">
+(function(){
+ 'use strict';
+ const $=id=>document.getElementById(id),base='https://neonplay-gaming.github.io/neonplay/';
+ const setStatus=t=>{const n=$('np5-status');if(n)n.textContent=t};
+ function safeText(el,text){el.textContent=text==null?'':String(text)}
+ function dateLabel(value){try{return new Date(value).toLocaleDateString()}catch{return ''}}
+ function renderReviews(rows){
+  const root=$('np5-review-list');if(!root)return;root.replaceChildren();
+  if(!rows.length){const p=document.createElement('p');p.textContent='No reviews yet. Sign in and be the first to review a game.';root.append(p);return}
+  rows.forEach(row=>{const card=document.createElement('article');card.className='np5-review';const top=document.createElement('div');const name=document.createElement('strong');safeText(name,row.game);const rating=document.createElement('span');rating.textContent=' · '+'★'.repeat(Math.max(1,Math.min(5,Number(row.rating)||1)))+'☆'.repeat(5-Math.max(1,Math.min(5,Number(row.rating)||1)));const meta=document.createElement('small');meta.textContent=' · '+(row.player_name||'Player')+' · '+dateLabel(row.created_at);top.append(name,rating,meta);const body=document.createElement('p');safeText(body,row.comment);card.append(top,body);root.append(card)})
+ }
+ async function loadReviews(){
+  if(!window.neonSupabase){setStatus('Reviews need the existing Supabase client.');return}
+  try{const {data,error}=await window.neonSupabase.from('game_reviews').select('id,game,rating,comment,player_name,created_at').order('created_at',{ascending:false}).limit(30);if(error)throw error;renderReviews(data||[]);setStatus((data||[]).length+' recent review(s) · latest 30 shown.')}
+  catch(e){renderReviews([]);setStatus('Review database is not set up yet. Run the current supabase-setup.sql in Supabase SQL Editor.')}
+ }
+ $('np5-review-form')?.addEventListener('submit',async e=>{
+  e.preventDefault();const game=$('np5-game').value.trim(),rating=Number($('np5-rating').value),comment=$('np5-comment').value.trim();
+  if(game.length<2||game.length>60||!Number.isInteger(rating)||rating<1||rating>5||comment.length<10||comment.length>800){setStatus('Enter a game name, rating and a review of 10–800 characters.');return}
+  const listed=[...document.querySelectorAll('#grid .game h3')].some(h=>h.textContent.trim().toLowerCase()===game.toLowerCase());
+  if(!listed){setStatus('Please use the exact name of a game listed in the NEONPLAY game cards.');return}
+  if(!window.neonSupabase||!window.onlineUser){setStatus('Please sign in first using the existing Profile / Sign in button.');return}
+  const button=e.submitter;if(button)button.disabled=true;setStatus('Posting review…');
+  try{const {error}=await window.neonSupabase.from('game_reviews').insert({user_id:window.onlineUser.id,game,rating,comment,player_name:(window.currentPlayer?.()||'Player').slice(0,24)});if(error)throw error;$('np5-comment').value='';setStatus('Review posted.');await loadReviews()}
+  catch(err){setStatus('Could not post review. Check that the current supabase-setup.sql has been run and your account is signed in.')}
+  finally{if(button)button.disabled=false}
+ });
+ // Helpful but honest download notes derived from each card's existing link labels; URLs are never rewritten.
+ document.querySelectorAll('#grid .game').forEach(card=>{
+  if(card.querySelector('.np5-download-note'))return;const body=card.querySelector('.body');if(!body)return;
+  const note=document.createElement('p');note.className='np5-download-note';note.style.minHeight='0';note.style.fontSize='.78rem';
+  const links=[...card.querySelectorAll('a[href]')];const hasDownload=links.some(a=>/download|install|terabox/i.test((a.textContent||'')+' '+a.href));
+  note.textContent=hasDownload?'Download note: use the existing game guide and verify the source and requirements before installing.':'Requirements: check the linked game guide or official source; details not independently specified here.';
+  body.append(note);
+ });
+ // Installable app shell; do not intercept navigation or third-party requests.
+ if('serviceWorker' in navigator && location.protocol==='https:'){
+  window.addEventListener('load',()=>navigator.serviceWorker.register(base+'service-worker.js',{scope:base}).catch(()=>{}),{once:true});
+ }
+ loadReviews();
 })();
 </script>
 
