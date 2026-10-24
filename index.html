@@ -1060,56 +1060,79 @@ footer{border-color:#d6b36a2b!important}
 
 
 <style id="np-anime-zone-style">
-#np-anime-zone-section{max-width:1200px;margin:38px auto;padding:clamp(22px,4vw,38px);border:1px solid rgba(214,177,92,.28);border-radius:24px;background:linear-gradient(135deg,#111112 0%,#080809 65%,#17130b 100%);color:#f5f1e8;overflow:hidden}
-#np-anime-zone-section .np-anime-head{display:flex;justify-content:space-between;align-items:end;gap:18px;flex-wrap:wrap}
-#np-anime-zone-section .np-anime-kicker{color:#d6b15c;font-size:.72rem;font-weight:900;letter-spacing:.19em;text-transform:uppercase}
-#np-anime-zone-section h2{margin:8px 0;color:#fff;font-size:clamp(1.8rem,4vw,2.6rem);letter-spacing:-.035em}
-#np-anime-zone-section .np-anime-intro{max-width:690px;color:#bcb8af;line-height:1.7;margin:8px 0 0}
-#np-anime-zone-section .np-anime-mark{font-size:clamp(2rem,6vw,4rem);font-weight:950;letter-spacing:-.08em;color:rgba(214,177,92,.18);line-height:1}
-#np-anime-zone-section .np-anime-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr));gap:16px;margin-top:26px}
-#np-anime-zone-section .np-anime-card{position:relative;display:flex;flex-direction:column;min-height:245px;padding:22px;border:1px solid rgba(255,255,255,.1);border-radius:17px;background:linear-gradient(145deg,rgba(255,255,255,.055),rgba(255,255,255,.018));transition:transform .22s ease,border-color .22s ease,background .22s ease}
-#np-anime-zone-section .np-anime-card:hover{transform:translateY(-4px);border-color:rgba(214,177,92,.65);background:linear-gradient(145deg,rgba(214,177,92,.09),rgba(255,255,255,.025))}
-#np-anime-zone-section .np-anime-number{display:flex;align-items:center;justify-content:center;width:43px;height:43px;border:1px solid rgba(214,177,92,.5);border-radius:12px;color:#d6b15c;font-size:.9rem;font-weight:900}
-#np-anime-zone-section .np-anime-tag{margin-top:18px;color:#d6b15c;font-size:.68rem;font-weight:900;letter-spacing:.15em}
-#np-anime-zone-section h3{margin:8px 0;color:#fff;font-size:1.2rem}
-#np-anime-zone-section .np-anime-card p{flex:1;color:#bcb8af;line-height:1.65;font-size:.92rem;margin:4px 0 18px}
-#np-anime-zone-section .np-anime-link{display:inline-flex;align-items:center;justify-content:center;align-self:flex-start;padding:11px 15px;border-radius:10px;background:#d6b15c;color:#15120a;font-weight:850;text-decoration:none;transition:filter .2s ease}
+#np-anime-zone-section{max-width:1440px;margin:30px auto;padding:0 18px;color:#f5f1e8}
+#np-anime-zone-section .np-anime-hero{position:relative;display:flex;align-items:center;min-height:350px;overflow:hidden;border:1px solid rgba(214,177,92,.35);border-radius:22px;background:#09090b url('https://commons.wikimedia.org/wiki/Special:FilePath/Anime%20art.jpg') center 35%/cover no-repeat}
+#np-anime-zone-section .np-anime-hero:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(5,5,7,.97) 0%,rgba(5,5,7,.82) 39%,rgba(5,5,7,.16) 100%),linear-gradient(0deg,rgba(5,5,7,.32),transparent 50%)}
+#np-anime-zone-section .np-anime-hero-copy{position:relative;z-index:1;max-width:700px;padding:clamp(28px,5vw,64px)}
+#np-anime-zone-section .np-anime-kicker{color:#e5bd61;font-size:.75rem;font-weight:900;letter-spacing:.18em;text-transform:uppercase}
+#np-anime-zone-section h2{margin:12px 0;color:#fff;font-size:clamp(2.6rem,7vw,5.6rem);line-height:.96;letter-spacing:-.055em;text-transform:uppercase}
+#np-anime-zone-section h2 span{color:#e5bd61}
+#np-anime-zone-section .np-anime-intro{max-width:520px;color:#eee8dc;line-height:1.7;margin:16px 0 0;font-size:1rem}
+#np-anime-zone-section .np-anime-hero-tag{display:inline-block;margin-top:20px;padding:9px 13px;border:1px solid rgba(229,189,97,.65);border-radius:9px;color:#f3d486;font-size:.78rem;font-weight:800;letter-spacing:.08em}
+#np-anime-zone-section .np-anime-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:16px;margin-top:22px}
+#np-anime-zone-section .np-anime-card{position:relative;display:flex;flex-direction:column;min-height:275px;overflow:hidden;padding:0;border:1px solid rgba(214,177,92,.42);border-radius:15px;background:#080809;transition:transform .22s ease,border-color .22s ease,box-shadow .22s ease}
+#np-anime-zone-section .np-anime-card:hover{transform:translateY(-4px);border-color:#e5bd61;box-shadow:0 12px 30px rgba(0,0,0,.32)}
+#np-anime-zone-section .np-anime-card-art{height:128px;background-image:linear-gradient(0deg,#09090b 0%,rgba(9,9,11,.05) 100%),url('https://commons.wikimedia.org/wiki/Special:FilePath/Anime%20art.jpg');background-size:cover;background-position:center 28%;border-bottom:1px solid rgba(214,177,92,.25)}
+#np-anime-zone-section .np-anime-card:nth-child(2) .np-anime-card-art{background-position:center 48%;filter:saturate(.85) hue-rotate(12deg)}
+#np-anime-zone-section .np-anime-card:nth-child(3) .np-anime-card-art{background-position:center 70%;filter:saturate(.9) hue-rotate(330deg)}
+#np-anime-zone-section .np-anime-card-copy{display:flex;flex:1;flex-direction:column;padding:18px}
+#np-anime-zone-section .np-anime-tag{color:#e5bd61;font-size:.68rem;font-weight:900;letter-spacing:.14em}
+#np-anime-zone-section h3{margin:8px 0;color:#fff;font-size:1.15rem}
+#np-anime-zone-section .np-anime-card p{flex:1;color:#bcb8af;line-height:1.6;font-size:.9rem;margin:3px 0 17px}
+#np-anime-zone-section .np-anime-link{display:inline-flex;align-items:center;justify-content:center;align-self:flex-start;padding:10px 14px;border:1px solid #d6b15c;border-radius:9px;background:linear-gradient(135deg,#f0d68a,#c79b3d);color:#15120a;font-weight:850;text-decoration:none}
 #np-anime-zone-section .np-anime-link:hover{filter:brightness(1.1)}
-#np-anime-zone-section .np-anime-note{margin:20px 0 0;color:#918c82;font-size:.8rem;line-height:1.6}
-@media(max-width:600px){#np-anime-zone-section .np-anime-card{min-height:215px}}
-@media(prefers-reduced-motion:reduce){#np-anime-zone-section .np-anime-card,#np-anime-zone-section .np-anime-link{transition:none}#np-anime-zone-section .np-anime-card:hover{transform:none}}
+#np-anime-zone-section .np-anime-popular{margin-top:28px}
+#np-anime-zone-section .np-anime-popular-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px}
+#np-anime-zone-section .np-anime-popular h3{margin:0;color:#f0c968;font-size:1.35rem}
+#np-anime-zone-section .np-anime-popular-head a{color:#eee2c7;text-decoration:none;font-size:.88rem}
+#np-anime-zone-section .np-anime-popular-grid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:12px}
+#np-anime-zone-section .np-anime-popular-item{display:block;overflow:hidden;border:1px solid rgba(214,177,92,.3);border-radius:11px;background:#101012;color:#fff;text-decoration:none}
+#np-anime-zone-section .np-anime-popular-item img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover;filter:saturate(.85);transition:transform .25s ease}
+#np-anime-zone-section .np-anime-popular-item:hover img{transform:scale(1.04)}
+#np-anime-zone-section .np-anime-popular-item span{display:block;padding:9px 8px;font-size:.78rem;font-weight:750}
+#np-anime-zone-section .np-anime-note{margin:18px 0 0;color:#918c82;font-size:.8rem;line-height:1.6}
+@media(max-width:900px){#np-anime-zone-section .np-anime-popular-grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
+@media(max-width:560px){#np-anime-zone-section .np-anime-hero{min-height:330px;background-position:58% center}#np-anime-zone-section .np-anime-hero:before{background:linear-gradient(90deg,rgba(5,5,7,.92),rgba(5,5,7,.48)),linear-gradient(0deg,rgba(5,5,7,.4),transparent)}#np-anime-zone-section .np-anime-hero-copy{padding:25px}#np-anime-zone-section .np-anime-popular-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(prefers-reduced-motion:reduce){#np-anime-zone-section .np-anime-card,#np-anime-zone-section .np-anime-popular-item img{transition:none}#np-anime-zone-section .np-anime-card:hover{transform:none}}
 </style>
 <section id="np-anime-zone-section" aria-labelledby="np-anime-zone-title">
-  <div class="np-anime-head">
-    <div>
-      <span class="np-anime-kicker">NEONPLAY / ENTER THE ANIME UNIVERSE</span>
-      <h2 id="np-anime-zone-title">Anime Zone<span style="color:#d6b15c">.</span></h2>
-      <p class="np-anime-intro">Explore licensed anime streaming, new series and official trailers from one clean, dedicated corner.</p>
+  <div class="np-anime-hero">
+    <div class="np-anime-hero-copy">
+      <span class="np-anime-kicker">♛ NEONPLAY / ANIME CORNER</span>
+      <h2 id="np-anime-zone-title">Anime <span>Zone</span></h2>
+      <p class="np-anime-intro">Watch, explore and enjoy anime series, trailers and official streaming links. Your anime destination starts here.</p>
+      <span class="np-anime-hero-tag">WATCH &nbsp; • &nbsp; EXPLORE &nbsp; • &nbsp; ENJOY</span>
     </div>
-    <div class="np-anime-mark" aria-hidden="true">ANIME</div>
   </div>
   <div class="np-anime-grid">
     <article class="np-anime-card">
-      <div class="np-anime-number" aria-hidden="true">01</div>
-      <span class="np-anime-tag">OFFICIAL STREAMING</span>
-      <h3>Crunchyroll</h3>
-      <p>Browse anime series and seasonal releases. Available shows and plans depend on your region.</p>
-      <a class="np-anime-link" href="https://www.crunchyroll.com/" target="_blank" rel="noopener noreferrer">Explore Anime ↗</a>
+      <div class="np-anime-card-art" role="img" aria-label="Anime artwork"></div>
+      <div class="np-anime-card-copy"><span class="np-anime-tag">OFFICIAL STREAMING</span><h3>Anime Streaming</h3><p>Browse anime series and seasonal releases on licensed platforms.</p><a class="np-anime-link" href="https://www.crunchyroll.com/" target="_blank" rel="noopener noreferrer">Watch Now ↗</a></div>
     </article>
     <article class="np-anime-card">
-      <div class="np-anime-number" aria-hidden="true">02</div>
-      <span class="np-anime-tag">TRAILERS & PREVIEWS</span>
-      <h3>Official Anime Videos</h3>
-      <p>Watch announcements, previews and promotional clips from official anime channels.</p>
-      <a class="np-anime-link" href="https://www.youtube.com/results?search_query=official+anime+trailers" target="_blank" rel="noopener noreferrer">Watch Trailers ↗</a>
+      <div class="np-anime-card-art" role="img" aria-label="Anime trailer artwork"></div>
+      <div class="np-anime-card-copy"><span class="np-anime-tag">TRAILERS & PREVIEWS</span><h3>Anime Trailers</h3><p>Find previews, announcements and promotional videos from official channels.</p><a class="np-anime-link" href="https://www.youtube.com/results?search_query=official+anime+trailers" target="_blank" rel="noopener noreferrer">Watch Trailers ↗</a></div>
     </article>
     <article class="np-anime-card">
-      <div class="np-anime-number" aria-hidden="true">03</div>
-      <span class="np-anime-tag">ANIME CATALOGUE</span>
-      <h3>Netflix Anime</h3>
-      <p>Discover anime titles on Netflix. Catalogue and age ratings vary by country and title.</p>
-      <a class="np-anime-link" href="https://www.netflix.com/browse/genre/7424" target="_blank" rel="noopener noreferrer">Browse Catalogue ↗</a>
+      <div class="np-anime-card-art" role="img" aria-label="Anime catalogue artwork"></div>
+      <div class="np-anime-card-copy"><span class="np-anime-tag">ANIME CATALOGUE</span><h3>Netflix Anime</h3><p>Explore anime titles on Netflix; catalogue availability varies by region.</p><a class="np-anime-link" href="https://www.netflix.com/browse/genre/7424" target="_blank" rel="noopener noreferrer">Browse Now ↗</a></div>
     </article>
+    <article class="np-anime-card">
+      <div class="np-anime-card-art" role="img" aria-label="Mature anime artwork"></div>
+      <div class="np-anime-card-copy"><span class="np-anime-tag">AGE-RATED PICKS</span><h3>Mature Anime (18+)</h3><p>Check age-rated anime and content notes on official platforms.</p><a class="np-anime-link" href="https://www.crunchyroll.com/" target="_blank" rel="noopener noreferrer">Explore Now ↗</a></div>
+    </article>
+  </div>
+  <div class="np-anime-popular">
+    <div class="np-anime-popular-head"><h3>♛ Popular Anime</h3><a href="https://www.crunchyroll.com/" target="_blank" rel="noopener noreferrer">View All ↗</a></div>
+    <div class="np-anime-popular-grid">
+      <a class="np-anime-popular-item" href="https://www.crunchyroll.com/" target="_blank" rel="noopener noreferrer"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Anime%20art.jpg" alt="Anime artwork" loading="lazy"><span>Anime Picks</span></a>
+      <a class="np-anime-popular-item" href="https://www.youtube.com/results?search_query=One+Piece+official+trailer" target="_blank" rel="noopener noreferrer"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Goku%20anime%20epico.gif" alt="Anime action artwork" loading="lazy"><span>Action Anime</span></a>
+      <a class="np-anime-popular-item" href="https://www.youtube.com/results?search_query=Naruto+official+trailer" target="_blank" rel="noopener noreferrer"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Anime%20Computer%20-%205002126983.jpg" alt="Anime fan artwork" loading="lazy"><span>Anime Trailers</span></a>
+      <a class="np-anime-popular-item" href="https://www.youtube.com/results?search_query=Jujutsu+Kaisen+official+trailer" target="_blank" rel="noopener noreferrer"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Brendo%20magical%20girl.png" alt="Anime illustration" loading="lazy"><span>Fantasy Anime</span></a>
+      <a class="np-anime-popular-item" href="https://www.youtube.com/results?search_query=Demon+Slayer+official+trailer" target="_blank" rel="noopener noreferrer"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Anime%20art.jpg" alt="Anime illustration" loading="lazy"><span>New Releases</span></a>
+      <a class="np-anime-popular-item" href="https://www.youtube.com/results?search_query=Chainsaw+Man+official+trailer" target="_blank" rel="noopener noreferrer"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Goku%20anime%20epico.gif" alt="Anime action illustration" loading="lazy"><span>Action Picks</span></a>
+      <a class="np-anime-popular-item" href="https://www.netflix.com/browse/genre/7424" target="_blank" rel="noopener noreferrer"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Anime%20Computer%20-%205002126983.jpg" alt="Anime catalogue artwork" loading="lazy"><span>Netflix Anime</span></a>
+    </div>
   </div>
   <p class="np-anime-note">NEONPLAY links to third-party services and does not host these videos. Check official content ratings, availability and subscription details before watching.</p>
 </section>
