@@ -1081,6 +1081,25 @@ footer{border-color:#d6b36a2b!important}
 @media(max-width:900px){#np-anime-zone-section .np-anime-popular-grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
 @media(max-width:560px){#np-anime-zone-section .np-anime-hero{min-height:330px;background-position:58% center}#np-anime-zone-section .np-anime-hero:before{background:linear-gradient(90deg,rgba(5,5,7,.92),rgba(5,5,7,.48)),linear-gradient(0deg,rgba(5,5,7,.4),transparent)}#np-anime-zone-section .np-anime-hero-copy{padding:25px}#np-anime-zone-section .np-anime-popular-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(prefers-reduced-motion:reduce){#np-anime-zone-section .np-anime-card,#np-anime-zone-section .np-anime-popular-item img{transition:none}#np-anime-zone-section .np-anime-card:hover{transform:none}}
+
+/* NEONPLAY PRIVATE ADULT BOX */
+#np-adult-box{margin:30px 0;padding:clamp(18px,3vw,28px);border:1px solid #a83b57;border-radius:16px;background:radial-gradient(ellipse at top right,#421524 0,transparent 50%),#0b090c;color:#f7edf0}
+#np-adult-box .np-adult-head{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+#np-adult-box .np-adult-badge{padding:6px 9px;border:1px solid #d65b76;border-radius:7px;color:#ff9aaf;font-size:.72rem;font-weight:900;letter-spacing:.1em}
+#np-adult-box h3{margin:10px 0;color:#fff;font-size:clamp(1.4rem,3vw,2rem)}
+#np-adult-box p{color:#c8b9bf;line-height:1.6}
+#np-adult-box .np-adult-controls{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+#np-adult-box input[type=password],#np-adult-box input[type=text]{min-width:0;flex:1;padding:12px 13px;border:1px solid #58303b;border-radius:9px;background:#151014;color:#fff}
+#np-adult-box .np-adult-btn{padding:11px 15px;border:1px solid #e16a83;border-radius:9px;background:#a92e4a;color:white;font-weight:850;cursor:pointer}
+#np-adult-box .np-adult-btn:disabled{opacity:.45;cursor:not-allowed}
+#np-adult-box .np-adult-upload{display:block;margin:15px 0;padding:16px;border:1px dashed #9e4a60;border-radius:10px;background:#130d11}
+#np-adult-box .np-adult-videos{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:14px;margin-top:16px}
+#np-adult-box .np-adult-video-card{padding:12px;border:1px solid #4b2632;border-radius:10px;background:#100c0f}
+#np-adult-box video{display:block;width:100%;max-height:360px;background:#000;border-radius:8px}
+#np-adult-box .np-adult-status{min-height:1.5em;color:#ffb7c6;font-size:.88rem}
+#np-adult-box .np-adult-private-note{font-size:.82rem;color:#a99aa0}
+#np-adult-box[hidden],#np-adult-box .np-adult-panel[hidden]{display:none!important}
+@media(prefers-reduced-motion:reduce){#np-adult-box *{scroll-behavior:auto!important;transition:none!important}}
 </style>
 <section id="np-anime-zone-section" aria-labelledby="np-anime-zone-title">
   <div class="np-anime-hero">
@@ -1113,7 +1132,74 @@ footer{border-color:#d6b36a2b!important}
     <div class="np-anime-popular-head"><h3>♛ Popular Anime</h3><a href="https://www.crunchyroll.com/" target="_blank" rel="noopener noreferrer">View All ↗</a></div>
     <div class="np-anime-popular-grid">
       <a class="np-anime-popular-item" href="https://www.crunchyroll.com/" target="_blank" rel="noopener noreferrer"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Anime%20art.jpg" alt="Anime artwork" loading="lazy"><span>Anime Picks</span></a>
-      <a class="np-anime-popular-item" href="https://www.youtube.com/results?search_query=One+Piece+official+trailer" target="_blank" rel="noopener noreferrer"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Goku%20anime%20epico.gif" alt="Anime action artwork" loading="lazy"><span>Action Anime</span></a>
+      <a class="np-anime-popular-item" href="https://www.youtube.com/results?search_query=One+Piece+official+trailer" target="_blank" rel="noopener noreferrer"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Goku%20ani
+<script id="np-adult-box-script">
+(function(){
+  var keyInput=document.getElementById('np-adult-key');
+  var openBtn=document.getElementById('np-adult-open');
+  var lockBtn=document.getElementById('np-adult-lock');
+  var panel=document.getElementById('np-adult-panel');
+  var status=document.getElementById('np-adult-status');
+  var fileInput=document.getElementById('np-adult-files');
+  var videoList=document.getElementById('np-adult-videos');
+  if(!keyInput||!openBtn||!panel||!fileInput||!videoList)return;
+  var ACCESS_KEY='NEON18';
+  var objectUrls=[];
+  function clearVideos(){
+    objectUrls.forEach(function(url){URL.revokeObjectURL(url);});
+    objectUrls=[];
+    videoList.replaceChildren();
+  }
+  openBtn.addEventListener('click',function(){
+    if(keyInput.value===ACCESS_KEY){
+      panel.hidden=false;
+      keyInput.value='';
+      status.textContent='Box unlocked. Apni video files select karo.';
+      keyInput.disabled=true;
+      openBtn.disabled=true;
+    }else{
+      status.textContent='Wrong key. Dobara try karo.';
+      keyInput.select();
+    }
+  });
+  keyInput.addEventListener('keydown',function(e){if(e.key==='Enter')openBtn.click();});
+  fileInput.addEventListener('change',function(){
+    clearVideos();
+    Array.prototype.forEach.call(fileInput.files||[],function(file){
+      if(!file.type||file.type.indexOf('video/')!==0){
+        status.textContent='Sirf video files select karo.';
+        return;
+      }
+      var url=URL.createObjectURL(file);
+      objectUrls.push(url);
+      var card=document.createElement('article');
+      card.className='np-adult-video-card';
+      var title=document.createElement('p');
+      title.textContent=file.name;
+      var player=document.createElement('video');
+      player.controls=true;
+      player.preload='metadata';
+      player.src=url;
+      player.setAttribute('aria-label','Video preview: '+file.name);
+      card.appendChild(title);
+      card.appendChild(player);
+      videoList.appendChild(card);
+    });
+    if(videoList.children.length)status.textContent=videoList.children.length+' video(s) ready for local preview.';
+  });
+  lockBtn.addEventListener('click',function(){
+    clearVideos();
+    fileInput.value='';
+    panel.hidden=true;
+    keyInput.disabled=false;
+    openBtn.disabled=false;
+    status.textContent='Box locked.';
+  });
+  window.addEventListener('beforeunload',clearVideos);
+})();
+</script>
+
+me%20epico.gif" alt="Anime action artwork" loading="lazy"><span>Action Anime</span></a>
       <a class="np-anime-popular-item" href="https://www.youtube.com/results?search_query=Naruto+official+trailer" target="_blank" rel="noopener noreferrer"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Anime%20Computer%20-%205002126983.jpg" alt="Anime fan artwork" loading="lazy"><span>Anime Trailers</span></a>
       <a class="np-anime-popular-item" href="https://www.youtube.com/results?search_query=Jujutsu+Kaisen+official+trailer" target="_blank" rel="noopener noreferrer"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Brendo%20magical%20girl.png" alt="Anime illustration" loading="lazy"><span>Fantasy Anime</span></a>
       <a class="np-anime-popular-item" href="https://www.youtube.com/results?search_query=Demon+Slayer+official+trailer" target="_blank" rel="noopener noreferrer"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Anime%20art.jpg" alt="Anime illustration" loading="lazy"><span>New Releases</span></a>
@@ -1121,6 +1207,26 @@ footer{border-color:#d6b36a2b!important}
       <a class="np-anime-popular-item" href="https://www.netflix.com/browse/genre/7424" target="_blank" rel="noopener noreferrer"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Anime%20Computer%20-%205002126983.jpg" alt="Anime catalogue artwork" loading="lazy"><span>Netflix Anime</span></a>
     </div>
   </div>
+  
+  <section id="np-adult-box" aria-labelledby="np-adult-title">
+    <div class="np-adult-head"><span class="np-adult-badge">18+ · KEY REQUIRED</span><span class="np-anime-tag">PRIVATE VIDEO BOX</span></div>
+    <h3 id="np-adult-title">🔒 Adult Video Box</h3>
+    <p>Sirf adults ke liye. Key enter karke apni video file browser mein select aur preview kar sakte ho.</p>
+    <div class="np-adult-controls" id="np-adult-unlock">
+      <label for="np-adult-key" style="position:absolute;left:-9999px">Access key</label>
+      <input id="np-adult-key" type="password" autocomplete="off" placeholder="Enter access key" aria-label="Enter access key">
+      <button class="np-adult-btn" id="np-adult-open" type="button">Unlock Box</button>
+    </div>
+    <p class="np-adult-status" id="np-adult-status" role="status" aria-live="polite"></p>
+    <div class="np-adult-panel" id="np-adult-panel" hidden>
+      <label class="np-adult-upload" for="np-adult-files"><strong>＋ Choose video files</strong><br><span class="np-adult-private-note">MP4, WebM, MOV jaise browser-supported video formats. Files isi browser session mein preview hongi.</span></label>
+      <input id="np-adult-files" type="file" accept="video/*" multiple hidden>
+      <div class="np-adult-videos" id="np-adult-videos"></div>
+      <p class="np-adult-private-note">Important: GitHub Pages static website hai. Ye demo videos ko server par upload ya permanently save nahi karta; selected files sirf aapke browser mein chalti hain. Front-end key source code se dekhi ja sakti hai, isliye ye real security/password protection nahi hai.</p>
+      <button class="np-adult-btn" id="np-adult-lock" type="button">Lock Box</button>
+    </div>
+  </section>
+
   <p class="np-anime-note">NEONPLAY links to third-party services and does not host these videos. Check official content ratings, availability and subscription details before watching.</p>
 </section>
 
