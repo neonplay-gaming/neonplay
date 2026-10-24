@@ -601,7 +601,7 @@ document.addEventListener('DOMContentLoaded',function(){
   item.className='np-popular-card';
   item.setAttribute('aria-label','Find '+title+' in the games list');
   const art=document.createElement('div');art.className='np-popular-art';
-  if(cover){const bg=getComputedStyle(cover).backgroundImage;if(bg&&bg!=='none')art.style.backgroundImage=bg;else art.style.backgroundImage='linear-gradient(135deg,#073c49,#191b44)';}
+  if(cover){const img=cover.querySelector('img');const bg=getComputedStyle(cover).backgroundImage;if(img&&img.src){art.style.backgroundImage='url("'+img.src+'")';}else if(bg&&bg!=='none')art.style.backgroundImage=bg;else art.style.backgroundImage='linear-gradient(135deg,#073c49,#191b44)';}
   const info=document.createElement('div');info.className='np-popular-info';
   const name=document.createElement('strong');name.textContent=title;
   const tag=document.createElement('span');tag.textContent='✦ POPULAR PICK';
