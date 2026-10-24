@@ -1591,4 +1591,54 @@ $3('np3-profile-open').addEventListener('click',()=>{if(typeof openAuth==='funct
 document.addEventListener('click',e=>{if(e.target.closest('#np-xp-spin'))setTimeout(()=>{const xp=readXp();cloudProfile.xp=Math.max(Number(cloudProfile.xp)||0,xp);cloudProfile.level=Math.max(1,Math.floor(Math.sqrt(xp/100))+1);if(onlineUser)saveCloudProfile().then(renderProfile);renderProfile()},500)});document.addEventListener('visibilitychange',()=>{if(!document.hidden&&onlineUser)loadCloudProfile()});const observer=new MutationObserver(()=>{const xp=readXp();if(xp>(Number(cloudProfile.xp)||0)){cloudProfile.xp=xp;cloudProfile.level=Math.max(1,Math.floor(xp/100)+1);if(onlineUser)saveCloudProfile().then(renderProfile);renderProfile()}});const xpNode=$3('np-xp-total');if(xpNode)observer.observe(xpNode,{childList:true,subtree:true,characterData:true});renderFeatured();renderProfile();decorateGameCards();
 })();
 </script>
+
+<!-- NEONPLAY UPDATE 4.0: shareable game cards and keyboard-friendly discovery -->
+<style id="np-update-4-style">
+#np4-search-hint{display:inline-flex;align-items:center;gap:5px;font-size:.78rem;color:var(--muted);margin:5px 0}
+#np4-search-hint kbd{border:1px solid #ffffff35;border-radius:5px;padding:2px 6px;background:#ffffff0a;color:var(--text);font:inherit}
+.np4-share-game{display:inline-flex;align-items:center;justify-content:center;gap:6px}
+.np4-share-status{position:fixed;left:50%;bottom:22px;transform:translate(-50%,18px);z-index:10050;max-width:min(92vw,480px);padding:11px 16px;border:1px solid #42f5ff70;border-radius:12px;background:#080b18;color:#effcff;box-shadow:0 10px 35px #0008;opacity:0;pointer-events:none;transition:opacity .18s,transform .18s;text-align:center;font-size:.9rem}
+.np4-share-status.np4-show{opacity:1;transform:translate(-50%,0)}
+@media(prefers-reduced-motion:reduce){.np4-share-status{transition:none}}
+@media(max-width:600px){.np4-share-game{flex:1 1 100%}}
+</style>
+<div id="np4-share-status" class="np4-share-status" role="status" aria-live="polite"></div>
+<script id="np-update-4-script">
+(function(){
+ 'use strict';
+ const $=id=>document.getElementById(id);
+ let toastTimer;
+ function notify(message){const t=$('np4-share-status');if(!t)return;t.textContent=message;t.classList.add('np4-show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>t.classList.remove('np4-show'),2400)}
+ function getShareUrl(card){const url=new URL(location.href);url.hash='games';return url.href}
+ async function shareGame(card){
+  const title=card.querySelector('h3')?.textContent?.trim()||'Game on NEONPLAY';
+  const description=card.querySelector('.body p')?.textContent?.trim()||'Explore this game on NEONPLAY.';
+  const url=getShareUrl(card);
+  if(navigator.share){try{await navigator.share({title:title+' | NEONPLAY',text:description+' — Check it out on NEONPLAY',url});notify('Share sheet opened.')}catch(err){if(err&&err.name==='AbortError')return;await copyLink(url,title)}}
+  else await copyLink(url,title);
+ }
+ async function copyLink(url,title){try{if(navigator.clipboard&&window.isSecureContext){await navigator.clipboard.writeText(url)}else{const field=document.createElement('textarea');field.value=url;field.style.position='fixed';field.style.opacity='0';document.body.append(field);field.select();const ok=document.execCommand('copy');field.remove();if(!ok)throw new Error('copy failed')}notify('Link copied! Share '+title+' with your friends.')}catch{notify('Copy unavailable. Copy this website link from your browser address bar.')}}
+ function addShareButtons(){
+  document.querySelectorAll('#grid .game').forEach(card=>{
+   const tools=card.querySelector('.game-tools');if(!tools||tools.querySelector('.np4-share-game'))return;
+   const b=document.createElement('button');b.type='button';b.className='btn secondary np4-share-game';b.textContent='↗ Share game';b.setAttribute('aria-label','Share '+(card.querySelector('h3')?.textContent?.trim()||'game'));
+   b.addEventListener('click',()=>shareGame(card));tools.append(b);
+  });
+ }
+ function addSearchHint(){
+  const smart=$('np-smart-search');if(!smart||$('np4-search-hint'))return;
+  const hint=document.createElement('div');hint.id='np4-search-hint';hint.innerHTML='Quick search <kbd>/</kbd> &nbsp; Clear <kbd>Esc</kbd>';
+  smart.insertAdjacentElement('afterend',hint);
+  smart.addEventListener('keydown',e=>{if(e.key==='Escape'){smart.value='';smart.dispatchEvent(new Event('input',{bubbles:true}));smart.focus()}});
+ }
+ document.addEventListener('keydown',e=>{
+  if(e.key!=='/'||e.ctrlKey||e.metaKey||e.altKey)return;
+  const target=e.target;if(target&&(target.isContentEditable||/INPUT|TEXTAREA|SELECT/.test(target.tagName)))return;
+  const smart=$('np-smart-search');if(smart){e.preventDefault();smart.focus();smart.scrollIntoView({behavior:'smooth',block:'center'})}
+ });
+ addShareButtons();addSearchHint();
+ const grid=$('grid');if(grid)new MutationObserver(addShareButtons).observe(grid,{childList:true,subtree:true});
+})();
+</script>
+
 </body></html>
