@@ -1430,4 +1430,120 @@ me%20epico.gif" alt="Anime action artwork" loading="lazy"><span>Action Anime</sp
 })();
 </script>
 
+
+
+<!-- NEONPLAY UPDATE 2.0: smart discovery, game quick guides, creator zone, XP streaks -->
+<style id="np-update-2-style">
+#np-smart-tools{display:flex;gap:10px;flex-wrap:wrap;margin:12px 0 18px;align-items:center}
+#np-smart-tools input,#np-smart-tools select{background:#101310;color:#f5f7f2;border:1px solid #a3ff1245;border-radius:12px;padding:12px 14px;min-height:44px;max-width:100%;flex:1 1 160px}
+#np-smart-tools .np-result-count{color:var(--muted);font-size:.85rem;flex:1 1 100%}
+.np-quick-guide{display:inline-flex;align-items:center;justify-content:center;margin:8px 6px 0 0;padding:9px 12px;border-radius:10px;border:1px solid #a3ff1255;background:#a3ff1210;color:#d7ff9b;font-weight:800;cursor:pointer}
+.np-quick-guide:hover{background:#a3ff1224;transform:translateY(-1px)}
+#np-game-guide-modal{position:fixed;inset:0;z-index:10050;background:#000c;display:none;align-items:center;justify-content:center;padding:18px}
+#np-game-guide-modal.open{display:flex}
+#np-game-guide-modal .np-guide-panel{width:min(760px,100%);max-height:88vh;overflow:auto;background:#0b0e0b;border:1px solid #a3ff1255;border-radius:22px;padding:clamp(18px,4vw,30px);box-shadow:0 25px 100px #000b}
+#np-game-guide-modal .np-guide-close{float:right;background:#1b211a;color:#fff;border:1px solid #ffffff22;border-radius:10px;padding:8px 12px;cursor:pointer}
+#np-game-guide-modal h2{margin:10px 0;color:#d7ff9b;font-size:clamp(1.5rem,4vw,2.2rem)}
+#np-game-guide-modal .np-guide-meta{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}
+#np-game-guide-modal .np-guide-meta span{padding:6px 10px;border-radius:999px;background:#a3ff1212;border:1px solid #a3ff1230;font-size:.8rem}
+#np-game-guide-modal .np-guide-copy{color:#d0d7ce;line-height:1.7}
+#np-game-guide-modal .np-guide-links{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+#np-game-guide-modal .np-guide-links a{display:inline-flex}
+#np-xp-zone .np-streak-panel{margin-top:14px;padding:14px;border:1px solid #a3ff1230;border-radius:14px;background:#a3ff1208}
+#np-xp-zone .np-streak-row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+#np-xp-zone .np-badge{font-size:.78rem;border:1px solid #a3ff1245;background:#a3ff1210;border-radius:999px;padding:7px 10px;color:#d7ff9b}
+#youtube-hub .np-yh-extra{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;margin-top:16px;padding:14px;border:1px solid #a3ff1233;border-radius:14px;background:#a3ff1209}
+#youtube-hub .np-yh-extra strong{color:#d7ff9b}
+@media(prefers-reduced-motion:reduce){.np-quick-guide:hover{transform:none}}
+</style>
+<div id="np-game-guide-modal" role="dialog" aria-modal="true" aria-labelledby="np-guide-title">
+ <div class="np-guide-panel"><button class="np-guide-close" id="np-guide-close" type="button" aria-label="Close game guide">✕ Close</button><div style="clear:both"></div><div id="np-guide-content"></div></div>
+</div>
+<script id="np-update-2-script">
+(function(){
+ 'use strict';
+ function init(){
+  if(document.getElementById('np-smart-tools')||!document.getElementById('grid'))return;
+  var grid=document.getElementById('grid'), search=document.getElementById('search'), filters=document.getElementById('filters');
+  var tools=document.createElement('div');tools.id='np-smart-tools';tools.setAttribute('aria-label','Smart game search and filters');
+  tools.innerHTML='<input id="np-smart-search" type="search" placeholder="⚡ Smart search: game, genre, keyword..." aria-label="Smart search games"><select id="np-platform-filter" aria-label="Filter by platform"><option value="all">All platforms</option><option value="pc">PC / Windows</option><option value="android">Android / APK</option><option value="browser">Play in browser</option></select><select id="np-genre-filter" aria-label="Filter by genre"><option value="all">All genres</option><option value="action">Action / Adventure</option><option value="arcade">Arcade</option><option value="puzzle">Puzzle</option><option value="casual">Casual</option><option value="racing">Racing</option></select><span class="np-result-count" id="np-result-count" aria-live="polite">Browse all games</span>';
+  filters.parentNode.insertBefore(tools,filters);
+  var smart=document.getElementById('np-smart-search'),platform=document.getElementById('np-platform-filter'),genre=document.getElementById('np-genre-filter'),count=document.getElementById('np-result-count');
+  var originalFilter=window.filterGames;
+  function applySmart(){
+   var q=smart.value.trim().toLowerCase(),p=platform.value,g=genre.value,visible=0;
+   document.querySelectorAll('#grid .game').forEach(function(card){
+    var name=(card.dataset.name||card.querySelector('h3')?.textContent||'').toLowerCase();
+    var desc=(card.querySelector('.body p')?.textContent||'').toLowerCase();
+    var tags=(card.querySelector('.tag')?.textContent||'').toLowerCase();
+    var type=(card.dataset.category||'').toLowerCase();
+    var hrefs=Array.from(card.querySelectorAll('a[href]')).map(function(a){return a.getAttribute('href')||'';}).join(' ').toLowerCase();
+    var text=[name,desc,tags,type,hrefs].join(' ');
+    var platOk=p==='all'||(p==='android'&&(/apk|android|google play/.test(text)||/android/.test(type)))||(p==='browser'&&(/play in browser|browser game|javascript/.test(text)||!!card.querySelector('button[onclick*="launch("]')))||(p==='pc'&&(/windows|pc|download/.test(text)&&!/android only/.test(text)));
+    var genreOk=g==='all'||(g==='action'&&(/action|adventure|shooter|fight|hero|survival/.test(text)))||(g==='arcade'&&(/arcade|snake|pong|runner|dash|classic/.test(text)))||(g==='puzzle'&&(/puzzle|memory|number|logic/.test(text)))||(g==='casual'&&(/casual|relax|clicker|cooking/.test(text)))||(g==='racing'&&(/racing|race|car|drift|driving/.test(text)));
+    var ok=(!q||text.includes(q))&&platOk&&genreOk;
+    card.classList.toggle('hidden',!ok);if(ok)visible++;
+   });
+   count.textContent=visible+' game'+(visible===1?'':'s')+' match your filters';
+  }
+  smart.addEventListener('input',applySmart);platform.addEventListener('change',applySmart);genre.addEventListener('change',applySmart);
+  if(search){search.addEventListener('input',function(){smart.value=search.value;applySmart();});}
+  if(filters)filters.addEventListener('click',function(){setTimeout(function(){smart.value='';platform.value='all';genre.value='all';applySmart();},0);});
+  document.querySelectorAll('.store-sidebar [data-side-filter]').forEach(function(b){b.addEventListener('click',function(){setTimeout(function(){smart.value='';platform.value=b.dataset.sideFilter==='android'?'android':'all';genre.value='all';applySmart();},0);});});
+  // Add guide buttons using existing card text and links; never replace download URLs.
+  var modal=document.getElementById('np-game-guide-modal'),content=document.getElementById('np-guide-content');
+  function closeGuide(){modal.classList.remove('open');document.body.style.overflow='';}
+  document.getElementById('np-guide-close').addEventListener('click',closeGuide);
+  modal.addEventListener('click',function(e){if(e.target===modal)closeGuide();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&modal.classList.contains('open'))closeGuide();});
+  document.querySelectorAll('#grid .game').forEach(function(card){
+   if(card.querySelector('.np-quick-guide'))return;
+   var btn=document.createElement('button');btn.type='button';btn.className='np-quick-guide';btn.textContent='📘 Quick guide';
+   var buttons=card.querySelector('.buttons')||card.querySelector('.body')||card;
+   buttons.appendChild(btn);
+   btn.addEventListener('click',function(){
+    var title=card.querySelector('h3')?.textContent.trim()||'Game guide';
+    var desc=card.querySelector('.body p')?.textContent.trim()||'Open the official game information or the existing download link below.';
+    var tag=card.querySelector('.tag')?.textContent.trim()||'GAME';
+    var type=card.dataset.category||'General';
+    var links=Array.from(card.querySelectorAll('a[href]')).filter(function(a){return a.href&&a.href!=='#'&&!a.href.startsWith('javascript:');});
+    var linkHtml=links.map(function(a){return '<a class="btn secondary" href="'+a.href.replace(/&/g,'&amp;').replace(/"/g,'&quot;')+'" target="_blank" rel="noopener noreferrer">'+(a.textContent.trim().replace(/[<>]/g,'')||'Open link')+' ↗</a>';}).join('');
+    content.innerHTML='<span class="pill">NEONPLAY GAME GUIDE</span><h2 id="np-guide-title"></h2><div class="np-guide-meta"><span>'+tag.replace(/[<>]/g,'')+'</span><span>'+type.replace(/[<>]/g,'')+'</span><span>Check device compatibility</span></div><p class="np-guide-copy"></p><h3>How to install / play</h3><ol class="np-guide-copy"><li>Check the game platform and system requirements on its official information page.</li><li>Use the listed download or official store link below. Keep the existing link and verify the source before opening downloaded files.</li><li>For a downloaded ZIP, extract it first. For an APK, use a compatible Android device or a supported Android runtime; APK files do not run natively on Windows.</li><li>Follow the included setup instructions and scan files from unfamiliar sources before running them.</li></ol><div class="np-guide-links">'+linkHtml+'</div>';
+    content.querySelector('h2').textContent=title;content.querySelector('p').textContent=desc;
+    if(!links.length)content.querySelector('.np-guide-links').textContent='No download link is currently listed for this game.';
+    modal.classList.add('open');document.body.style.overflow='hidden';
+   });
+  });
+  // Creator zone: add clear channel CTA while preserving the existing featured video and links.
+  var yt=document.getElementById('youtube-hub');
+  if(yt&&!yt.querySelector('.np-yh-extra')){
+   var extra=document.createElement('div');extra.className='np-yh-extra';
+   extra.innerHTML='<div><strong>Join the NEONPLAY squad</strong><div style="color:var(--muted);font-size:.88rem;margin-top:4px">Subscribe for gaming videos, Shorts and new game discoveries.</div></div><a class="btn primary" href="https://www.youtube.com/@NeonPlay-r3z?sub_confirmation=1" target="_blank" rel="noopener noreferrer">▶ Subscribe to @NeonPlay-r3z</a>';
+   yt.appendChild(extra);
+  }
+  // Daily streak + milestone badges complement the existing XP wheel without changing its reward logic.
+  var xp=document.getElementById('np-xp-zone');
+  if(xp&&!xp.querySelector('.np-streak-panel')){
+   var panel=document.createElement('div');panel.className='np-streak-panel';
+   panel.innerHTML='<div class="np-streak-row"><strong>🏅 Player achievements</strong><span class="np-badge" id="np-achievement-level">🌱 New Player</span><span class="np-badge" id="np-achievement-xp">✨ XP Starter</span><span class="np-badge" id="np-achievement-streak">🔥 Daily Spin</span></div><p style="margin:9px 0 0;color:var(--muted);font-size:.82rem">Milestone badges update with your saved XP and daily spin streak in this browser.</p>';
+   xp.appendChild(panel);
+   var spin=document.getElementById('np-xp-spin'),wheel=document.getElementById('np-xp-wheel');
+   function refreshBadges(){
+    var total=Number((document.getElementById('np-xp-total')||{}).textContent)||0;
+    var level=Number((document.getElementById('np-xp-level')||{}).textContent)||1;
+    var lv=document.getElementById('np-achievement-level'),ex=document.getElementById('np-achievement-xp'),st=document.getElementById('np-achievement-streak');
+    lv.textContent=level>=10?'👑 Level Legend':level>=5?'⚡ Rising Star':level>=2?'🎮 Level Up':'🌱 New Player';
+    ex.textContent=total>=1000?'💎 XP Master':total>=400?'🏆 XP Hunter':total>=100?'✨ XP Collector':'✨ XP Starter';
+    try{var raw=JSON.parse(localStorage.getItem('neonplay_xp_spin_v1')||'{}');var today=new Date();var date=today.getFullYear()+'-'+String(today.getMonth()+1).padStart(2,'0')+'-'+String(today.getDate()).padStart(2,'0');var last=raw.lastSpinDate||raw.lastSpin||raw.date||'';st.textContent=last===date?'✅ Daily Spin Complete':'🔥 Daily Spin';}catch(e){st.textContent='🔥 Daily Spin';}
+   }
+   if(spin)spin.addEventListener('click',function(){setTimeout(refreshBadges,250);setTimeout(refreshBadges,4400);});
+   if(wheel)new MutationObserver(refreshBadges).observe(wheel,{attributes:true,attributeFilter:['style']});
+   refreshBadges();
+  }
+  applySmart();
+ }
+ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
+})();
+</script>
+
 </body></html>
