@@ -1808,4 +1808,16 @@ body{background-color:#05060a!important;background-image:radial-gradient(ellipse
 @keyframes np-rgb-force-hue{to{filter:hue-rotate(360deg)}}
 @media(prefers-reduced-motion:reduce){.logo b,.art{animation:none!important}}
 </style>
+
+
+<style id="neonplay-premium-rgb-safe">
+/* Subtle premium RGB accents only; no layout, content, or application logic changes */
+:root{--np-rgb-cyan:#42f5ff;--np-rgb-pink:#ff3bd4}
+:where(button,.btn,.game,.card,.panel,.profile-card,.review-card,.leaderboard-card){transition:border-color .24s ease,box-shadow .24s ease,filter .24s ease}
+:where(button,.btn):hover{box-shadow:0 0 0 1px #42f5ff20,0 0 16px #42f5ff18}
+:where(input,select,textarea):focus{border-color:#42f5ff!important;box-shadow:0 0 0 3px #42f5ff1b!important;outline:none}
+:where(.game,.card,.panel,.profile-card,.review-card,.leaderboard-card):hover{box-shadow:0 0 0 1px #42f5ff18,0 8px 24px #00d9ff12,0 0 18px #ff3bd40c}
+@media(prefers-reduced-motion:reduce){:where(button,.btn,.game,.card,.panel,.profile-card,.review-card,.leaderboard-card){transition:none!important}}
+</style>
+
 </body></html>
