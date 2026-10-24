@@ -1007,4 +1007,55 @@ footer{border-color:#d6b36a2b!important}
   <p class="np-mature-foot">Store links open the official Steam pages. Availability, content details and age classification may vary by region.</p>
 </section>
 
+
+<style id="np-age-gate-style">
+#np-age-gate{position:fixed;inset:0;z-index:999999;display:flex;align-items:center;justify-content:center;padding:20px;background:rgba(3,3,4,.94);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+#np-age-gate[hidden]{display:none}
+#np-age-gate .np-age-panel{width:min(100%,490px);padding:clamp(24px,5vw,38px);border:1px solid rgba(214,177,92,.55);border-radius:22px;background:radial-gradient(ellipse at top,rgba(214,177,92,.12),transparent 60%),#101011;color:#f5f1e8;text-align:center;box-shadow:0 25px 100px rgba(0,0,0,.6)}
+#np-age-gate .np-age-symbol{display:inline-grid;place-items:center;width:76px;height:76px;border:1px solid rgba(214,177,92,.65);border-radius:50%;color:#d6b15c;font-size:1.7rem;font-weight:900;letter-spacing:-.05em}
+#np-age-gate .np-age-eyebrow{margin:18px 0 8px;color:#d6b15c;font-size:.72rem;font-weight:900;letter-spacing:.2em}
+#np-age-gate h2{margin:0 0 12px;color:#fff;font-size:clamp(1.8rem,6vw,2.5rem);line-height:1.08}
+#np-age-gate .np-age-copy{margin:0 auto;color:#c4c0b7;max-width:390px;line-height:1.65;font-size:.96rem}
+#np-age-gate .np-age-actions{display:grid;gap:10px;margin-top:24px}
+#np-age-gate .np-age-actions button{min-height:48px;padding:12px 18px;border-radius:10px;font:inherit;font-weight:850;cursor:pointer;transition:transform .18s ease,filter .18s ease}
+#np-age-gate .np-age-enter{border:0;background:linear-gradient(135deg,#f0d68a,#c79b3d);color:#171208}
+#np-age-gate .np-age-exit{border:1px solid #494640;background:#191919;color:#e5e0d5}
+#np-age-gate .np-age-actions button:hover{transform:translateY(-2px);filter:brightness(1.06)}
+#np-age-gate .np-age-foot{margin:17px 0 0;color:#8e8a82;font-size:.76rem;line-height:1.5}
+@media(prefers-reduced-motion:reduce){#np-age-gate .np-age-actions button{transition:none}#np-age-gate .np-age-actions button:hover{transform:none}}
+</style>
+<div id="np-age-gate" role="dialog" aria-modal="true" aria-labelledby="np-age-title" aria-describedby="np-age-description">
+  <div class="np-age-panel">
+    <div class="np-age-symbol" aria-hidden="true">18+</div>
+    <p class="np-age-eyebrow">NEONPLAY • AGE NOTICE</p>
+    <h2 id="np-age-title">Are you 18 or older?</h2>
+    <p class="np-age-copy" id="np-age-description">This gaming website may include mature themes, strong language, horror and age-rated game links. Please continue only if you are 18 or older.</p>
+    <div class="np-age-actions">
+      <button class="np-age-enter" id="np-age-confirm" type="button">I’m 18+ — Enter NEONPLAY</button>
+      <button class="np-age-exit" id="np-age-leave" type="button">I’m under 18 — Leave</button>
+    </div>
+    <p class="np-age-foot">This is an age notice, not formal age verification. Game ratings and availability may vary by region.</p>
+  </div>
+</div>
+<script id="np-age-gate-script">
+(function(){
+  var gate=document.getElementById('np-age-gate');
+  var enter=document.getElementById('np-age-confirm');
+  var leave=document.getElementById('np-age-leave');
+  if(!gate||!enter||!leave)return;
+  try{if(sessionStorage.getItem('np18-session-ok')==='yes'){gate.hidden=true;return;}}catch(e){}
+  document.documentElement.style.overflow='hidden';
+  enter.focus({preventScroll:true});
+  enter.addEventListener('click',function(){
+    try{sessionStorage.setItem('np18-session-ok','yes');}catch(e){}
+    gate.hidden=true;
+    document.documentElement.style.overflow='';
+  });
+  leave.addEventListener('click',function(){
+    window.location.href='https://www.google.com/';
+  });
+})();
+</script>
+
+
 </body></html>
