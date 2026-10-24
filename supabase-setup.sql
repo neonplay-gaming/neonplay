@@ -33,3 +33,31 @@ create index if not exists scores_score_created_idx
   on public.scores (score desc, created_at desc);
 create index if not exists scores_user_id_idx
   on public.scores (user_id);
+
+-- NEONPLAY UPDATE 3.0: account-based player profile, favorites, collections and recent games.
+-- Run this in the same Supabase project's SQL Editor. RLS keeps each profile private to its owner.
+create table if not exists public.player_profiles (
+  user_id uuid primary key references auth.users(id) on delete cascade,
+  display_name text not null default 'Player' check (char_length(display_name) between 1 and 24),
+  xp integer not null default 0 check (xp >= 0),
+  level integer not null default 1 check (level >= 1),
+  favorites jsonb not null default '[]'::jsonb check (jsonb_typeof(favorites) = 'array'),
+  recent_games jsonb not null default '[]'::jsonb check (jsonb_typeof(recent_games) = 'array'),
+  collections jsonb not null default '[]'::jsonb check (jsonb_typeof(collections) = 'array'),
+  updated_at timestamptz not null default now()
+);
+
+alter table public.player_profiles enable row level security;
+drop policy if exists "Players can read their own profile" on public.player_profiles;
+create policy "Players can read their own profile"
+  on public.player_profiles for select to authenticated
+  using (auth.uid() = user_id);
+drop policy if exists "Players can create their own profile" on public.player_profiles;
+create policy "Players can create their own profile"
+  on public.player_profiles for insert to authenticated
+  with check (auth.uid() = user_id);
+drop policy if exists "Players can update their own profile" on public.player_profiles;
+create policy "Players can update their own profile"
+  on public.player_profiles for update to authenticated
+  using (auth.uid() = user_id)
+  with check (auth.uid() = user_id);
