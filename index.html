@@ -1060,50 +1060,58 @@ footer{border-color:#d6b36a2b!important}
 
 
 <style id="np-anime-zone-style">
-#np-anime-zone-section{max-width:1200px;margin:34px auto;padding:28px 22px;border:1px solid rgba(214,177,92,.24);border-radius:22px;background:radial-gradient(ellipse at top right,rgba(179,132,42,.10),transparent 55%),#0a0a0b;color:#f5f1e8}
-#np-anime-zone-section .np-anime-kicker{color:#d6b15c;font-size:.75rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase}
-#np-anime-zone-section h2{margin:8px 0;color:#fff;font-size:clamp(1.5rem,3vw,2.15rem)}
-#np-anime-zone-section .np-anime-intro{max-width:760px;color:#bcb8af;line-height:1.65}
-#np-anime-zone-section .np-anime-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:16px;margin-top:20px}
-#np-anime-zone-section .np-anime-card{display:flex;flex-direction:column;min-height:225px;padding:20px;border:1px solid rgba(255,255,255,.1);border-radius:16px;background:linear-gradient(145deg,#171717,#0f0f10);transition:transform .22s ease,border-color .22s ease,box-shadow .22s ease}
-#np-anime-zone-section .np-anime-card:hover{transform:translateY(-4px);border-color:rgba(214,177,92,.6);box-shadow:0 12px 34px rgba(0,0,0,.28)}
-#np-anime-zone-section .np-anime-icon{font-size:2rem}
-#np-anime-zone-section .np-anime-tag{margin-top:12px;color:#d6b15c;font-size:.7rem;font-weight:800;letter-spacing:.12em}
-#np-anime-zone-section h3{margin:7px 0;color:#fff;font-size:1.15rem}
-#np-anime-zone-section .np-anime-card p{flex:1;color:#bcb8af;line-height:1.55;font-size:.92rem}
-#np-anime-zone-section .np-anime-link{display:inline-flex;align-self:flex-start;margin-top:12px;padding:10px 14px;border-radius:9px;background:#d6b15c;color:#15120a;font-weight:800;text-decoration:none}
-#np-anime-zone-section .np-anime-link:hover{filter:brightness(1.08)}
-#np-anime-zone-section .np-anime-note{margin:18px 0 0;color:#9f9a90;font-size:.82rem;line-height:1.5}
-@media(prefers-reduced-motion:reduce){#np-anime-zone-section .np-anime-card{transition:none}#np-anime-zone-section .np-anime-card:hover{transform:none}}
+#np-anime-zone-section{max-width:1200px;margin:38px auto;padding:clamp(22px,4vw,38px);border:1px solid rgba(214,177,92,.28);border-radius:24px;background:linear-gradient(135deg,#111112 0%,#080809 65%,#17130b 100%);color:#f5f1e8;overflow:hidden}
+#np-anime-zone-section .np-anime-head{display:flex;justify-content:space-between;align-items:end;gap:18px;flex-wrap:wrap}
+#np-anime-zone-section .np-anime-kicker{color:#d6b15c;font-size:.72rem;font-weight:900;letter-spacing:.19em;text-transform:uppercase}
+#np-anime-zone-section h2{margin:8px 0;color:#fff;font-size:clamp(1.8rem,4vw,2.6rem);letter-spacing:-.035em}
+#np-anime-zone-section .np-anime-intro{max-width:690px;color:#bcb8af;line-height:1.7;margin:8px 0 0}
+#np-anime-zone-section .np-anime-mark{font-size:clamp(2rem,6vw,4rem);font-weight:950;letter-spacing:-.08em;color:rgba(214,177,92,.18);line-height:1}
+#np-anime-zone-section .np-anime-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr));gap:16px;margin-top:26px}
+#np-anime-zone-section .np-anime-card{position:relative;display:flex;flex-direction:column;min-height:245px;padding:22px;border:1px solid rgba(255,255,255,.1);border-radius:17px;background:linear-gradient(145deg,rgba(255,255,255,.055),rgba(255,255,255,.018));transition:transform .22s ease,border-color .22s ease,background .22s ease}
+#np-anime-zone-section .np-anime-card:hover{transform:translateY(-4px);border-color:rgba(214,177,92,.65);background:linear-gradient(145deg,rgba(214,177,92,.09),rgba(255,255,255,.025))}
+#np-anime-zone-section .np-anime-number{display:flex;align-items:center;justify-content:center;width:43px;height:43px;border:1px solid rgba(214,177,92,.5);border-radius:12px;color:#d6b15c;font-size:.9rem;font-weight:900}
+#np-anime-zone-section .np-anime-tag{margin-top:18px;color:#d6b15c;font-size:.68rem;font-weight:900;letter-spacing:.15em}
+#np-anime-zone-section h3{margin:8px 0;color:#fff;font-size:1.2rem}
+#np-anime-zone-section .np-anime-card p{flex:1;color:#bcb8af;line-height:1.65;font-size:.92rem;margin:4px 0 18px}
+#np-anime-zone-section .np-anime-link{display:inline-flex;align-items:center;justify-content:center;align-self:flex-start;padding:11px 15px;border-radius:10px;background:#d6b15c;color:#15120a;font-weight:850;text-decoration:none;transition:filter .2s ease}
+#np-anime-zone-section .np-anime-link:hover{filter:brightness(1.1)}
+#np-anime-zone-section .np-anime-note{margin:20px 0 0;color:#918c82;font-size:.8rem;line-height:1.6}
+@media(max-width:600px){#np-anime-zone-section .np-anime-card{min-height:215px}}
+@media(prefers-reduced-motion:reduce){#np-anime-zone-section .np-anime-card,#np-anime-zone-section .np-anime-link{transition:none}#np-anime-zone-section .np-anime-card:hover{transform:none}}
 </style>
 <section id="np-anime-zone-section" aria-labelledby="np-anime-zone-title">
-  <span class="np-anime-kicker">NEONPLAY • ANIME CORNER</span>
-  <h2 id="np-anime-zone-title">Anime Zone</h2>
-  <p class="np-anime-intro">Discover anime series, trailers and anime-inspired stories through official platforms. Mature themes may vary by title; check each platform's ratings and content details.</p>
+  <div class="np-anime-head">
+    <div>
+      <span class="np-anime-kicker">NEONPLAY / ENTER THE ANIME UNIVERSE</span>
+      <h2 id="np-anime-zone-title">Anime Zone<span style="color:#d6b15c">.</span></h2>
+      <p class="np-anime-intro">Explore licensed anime streaming, new series and official trailers from one clean, dedicated corner.</p>
+    </div>
+    <div class="np-anime-mark" aria-hidden="true">ANIME</div>
+  </div>
   <div class="np-anime-grid">
     <article class="np-anime-card">
-      <div class="np-anime-icon" aria-hidden="true">01</div>
-      <span class="np-anime-tag">STREAMING</span>
+      <div class="np-anime-number" aria-hidden="true">01</div>
+      <span class="np-anime-tag">OFFICIAL STREAMING</span>
       <h3>Crunchyroll</h3>
-      <p>Explore anime series, seasonal releases and official episodes where available in your region.</p>
-      <a class="np-anime-link" href="https://www.crunchyroll.com/" target="_blank" rel="noopener noreferrer">Visit Crunchyroll ↗</a>
+      <p>Browse anime series and seasonal releases. Available shows and plans depend on your region.</p>
+      <a class="np-anime-link" href="https://www.crunchyroll.com/" target="_blank" rel="noopener noreferrer">Explore Anime ↗</a>
     </article>
     <article class="np-anime-card">
-      <div class="np-anime-icon" aria-hidden="true">02</div>
-      <span class="np-anime-tag">ANIME VIDEOS</span>
-      <h3>Official Anime Trailers</h3>
-      <p>Find previews, announcements and promotional videos from anime studios and licensed channels.</p>
+      <div class="np-anime-number" aria-hidden="true">02</div>
+      <span class="np-anime-tag">TRAILERS & PREVIEWS</span>
+      <h3>Official Anime Videos</h3>
+      <p>Watch announcements, previews and promotional clips from official anime channels.</p>
       <a class="np-anime-link" href="https://www.youtube.com/results?search_query=official+anime+trailers" target="_blank" rel="noopener noreferrer">Watch Trailers ↗</a>
     </article>
     <article class="np-anime-card">
-      <div class="np-anime-icon" aria-hidden="true">03</div>
-      <span class="np-anime-tag">ANIME CATALOG</span>
+      <div class="np-anime-number" aria-hidden="true">03</div>
+      <span class="np-anime-tag">ANIME CATALOGUE</span>
       <h3>Netflix Anime</h3>
-      <p>Browse anime titles available on Netflix; catalogue and age ratings can differ by country.</p>
-      <a class="np-anime-link" href="https://www.netflix.com/browse/genre/7424" target="_blank" rel="noopener noreferrer">Explore Netflix Anime ↗</a>
+      <p>Discover anime titles on Netflix. Catalogue and age ratings vary by country and title.</p>
+      <a class="np-anime-link" href="https://www.netflix.com/browse/genre/7424" target="_blank" rel="noopener noreferrer">Browse Catalogue ↗</a>
     </article>
   </div>
-  <p class="np-anime-note">Links open third-party platforms. NEONPLAY does not host these videos; availability, subscriptions and age ratings are set by each service.</p>
+  <p class="np-anime-note">NEONPLAY links to third-party services and does not host these videos. Check official content ratings, availability and subscription details before watching.</p>
 </section>
 
 
