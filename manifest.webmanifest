@@ -1,0 +1,22 @@
+{
+  "name": "NEONPLAY — Enter the Arcade",
+  "short_name": "NEONPLAY",
+  "description": "NeonPlay browser arcade and game installation guides.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#080b18",
+  "theme_color": "#080b18",
+  "categories": [
+    "games",
+    "entertainment"
+  ],
+  "icons": [
+    {
+      "src": "./neonplay-icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
