@@ -1819,4 +1819,19 @@ body:after{content:""!important;display:block!important;position:fixed!important
 @media(prefers-reduced-motion:reduce){body:after{animation:none!important}}
 </style>
 
+
+
+<style id="neonplay-safe-polish-v1">
+/* Small, safe polish — preserve existing layout, games, links and app logic */
+:root{scroll-behavior:smooth}
+button,a,[role="button"],.game,.card{-webkit-tap-highlight-color:transparent}
+button,a,[role="button"]{transition:transform .18s ease,filter .18s ease,box-shadow .18s ease}
+button:hover,a:hover,[role="button"]:hover{filter:brightness(1.08)}
+button:active,a:active,[role="button"]:active{transform:scale(.985)}
+a:focus-visible,button:focus-visible,[role="button"]:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid #42f5ff!important;outline-offset:3px!important}
+img{height:auto}
+@media(max-width:640px){button,a,[role="button"]{touch-action:manipulation}input,select,textarea{max-width:100%}}
+@media(prefers-reduced-motion:reduce){:root{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
+</style>
+
 </body></html>
