@@ -1698,8 +1698,8 @@ document.addEventListener('click',e=>{if(e.target.closest('#np-xp-spin'))setTime
   rows.forEach(row=>{const card=document.createElement('article');card.className='np5-review';const top=document.createElement('div');const name=document.createElement('strong');safeText(name,row.game);const rating=document.createElement('span');rating.textContent=' · '+'★'.repeat(Math.max(1,Math.min(5,Number(row.rating)||1)))+'☆'.repeat(5-Math.max(1,Math.min(5,Number(row.rating)||1)));const meta=document.createElement('small');meta.textContent=' · '+(row.player_name||'Player')+' · '+dateLabel(row.created_at);top.append(name,rating,meta);const body=document.createElement('p');safeText(body,row.comment);card.append(top,body);root.append(card)})
  }
  async function loadReviews(){
-  if(!window.neonSupabase){setStatus('Reviews need the existing Supabase client.');return}
-  try{const {data,error}=await window.neonSupabase.from('game_reviews').select('id,game,rating,comment,player_name,created_at').order('created_at',{ascending:false}).limit(30);if(error)throw error;renderReviews(data||[]);setStatus((data||[]).length+' recent review(s) · latest 30 shown.')}
+  if(typeof neonSupabase==='undefined'||!neonSupabase){setStatus('Reviews need the existing Supabase client.');return}
+  try{const {data,error}=await neonSupabase.from('game_reviews').select('id,game,rating,comment,player_name,created_at').order('created_at',{ascending:false}).limit(30);if(error)throw error;renderReviews(data||[]);setStatus((data||[]).length+' recent review(s) · latest 30 shown.')}
   catch(e){renderReviews([]);setStatus('Review database is not set up yet. Run the current supabase-setup.sql in Supabase SQL Editor.')}
  }
  $('np5-review-form')?.addEventListener('submit',async e=>{
@@ -1707,9 +1707,9 @@ document.addEventListener('click',e=>{if(e.target.closest('#np-xp-spin'))setTime
   if(game.length<2||game.length>60||!Number.isInteger(rating)||rating<1||rating>5||comment.length<10||comment.length>800){setStatus('Enter a game name, rating and a review of 10–800 characters.');return}
   const listed=[...document.querySelectorAll('#grid .game h3')].some(h=>h.textContent.trim().toLowerCase()===game.toLowerCase());
   if(!listed){setStatus('Please use the exact name of a game listed in the NEONPLAY game cards.');return}
-  if(!window.neonSupabase||!window.onlineUser){setStatus('Please sign in first using the existing Profile / Sign in button.');return}
+  if(typeof neonSupabase==='undefined'||!neonSupabase||typeof onlineUser==='undefined'||!onlineUser){setStatus('Please sign in first using the existing Profile / Sign in button.');return}
   const button=e.submitter;if(button)button.disabled=true;setStatus('Posting review…');
-  try{const {error}=await window.neonSupabase.from('game_reviews').insert({user_id:window.onlineUser.id,game,rating,comment,player_name:(window.currentPlayer?.()||'Player').slice(0,24)});if(error)throw error;$('np5-comment').value='';setStatus('Review posted.');await loadReviews()}
+  try{const {error}=await window.neonSupabase.from('game_reviews').insert({user_id:onlineUser.id,game,rating,comment,player_name:(typeof currentPlayer==='function'?currentPlayer():'Player').slice(0,24)});if(error)throw error;$('np5-comment').value='';setStatus('Review posted.');await loadReviews()}
   catch(err){setStatus('Could not post review. Check that the current supabase-setup.sql has been run and your account is signed in.')}
   finally{if(button)button.disabled=false}
  });
