@@ -586,7 +586,7 @@ document.addEventListener('DOMContentLoaded',function(){
  const grid=document.getElementById('grid');
  if(!root||!grid)return;
  const cards=[...grid.querySelectorAll('.game')];
- const patterns=[/grand theft auto: san andreas/i,/gta vice city/i,/grand theft auto v/i,/red dead redemption 2/i,/counter-strike/i,/minecraft/i,/terraria/i,/stardew valley/i,/portal/i,/half-life/i];
+ const patterns=[/^Red Dead Redemption$/i,/^Red Dead Redemption 2$/i,/GTA Vice City/i,/Grand Theft Auto V/i,/Grand Theft Auto: San Andreas/i,/Counter-Strike/i,/Minecraft/i,/Terraria/i,/Stardew Valley/i,/Portal/i,/Half-Life/i];
  const chosen=[];
  for(const pattern of patterns){
   const card=cards.find(c=>pattern.test(c.querySelector('h3')?.textContent||'')&&!chosen.includes(c));
