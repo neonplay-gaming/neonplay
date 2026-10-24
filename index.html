@@ -1169,67 +1169,55 @@ me%20epico.gif" alt="Anime action artwork" loading="lazy"><span>Action Anime</sp
 
 <script id="np-adult-box-script">
 (function(){
-  var keyInput=document.getElementById('np-adult-key');
-  var openBtn=document.getElementById('np-adult-open');
-  var lockBtn=document.getElementById('np-adult-lock');
-  var panel=document.getElementById('np-adult-panel');
-  var status=document.getElementById('np-adult-status');
-  var fileInput=document.getElementById('np-adult-files');
-  var videoList=document.getElementById('np-adult-videos');
-  if(!keyInput||!openBtn||!panel||!fileInput||!videoList)return;
-  var ACCESS_KEY='NEON18';
-  var objectUrls=[];
-  function clearVideos(){
-    objectUrls.forEach(function(url){URL.revokeObjectURL(url);});
-    objectUrls=[];
-    videoList.replaceChildren();
-  }
-  openBtn.addEventListener('click',function(){
-    if(keyInput.value===ACCESS_KEY){
-      panel.hidden=false;
-      keyInput.value='';
-      status.textContent='Box unlocked. Apni video files select karo.';
-      keyInput.disabled=true;
-      openBtn.disabled=true;
-    }else{
-      status.textContent='Wrong key. Dobara try karo.';
-      keyInput.select();
+  function initAdultBox(){
+    var keyInput=document.getElementById('np-adult-key');
+    var openBtn=document.getElementById('np-adult-open');
+    var lockBtn=document.getElementById('np-adult-lock');
+    var panel=document.getElementById('np-adult-panel');
+    var status=document.getElementById('np-adult-status');
+    var fileInput=document.getElementById('np-adult-files');
+    var videoList=document.getElementById('np-adult-videos');
+    if(!keyInput||!openBtn||!panel||!fileInput||!videoList)return;
+    var urls=[];
+    function clearVideos(){
+      urls.forEach(function(url){try{URL.revokeObjectURL(url);}catch(e){}});
+      urls=[];
+      videoList.innerHTML='';
     }
-  });
-  keyInput.addEventListener('keydown',function(e){if(e.key==='Enter')openBtn.click();});
-  fileInput.addEventListener('change',function(){
-    clearVideos();
-    Array.prototype.forEach.call(fileInput.files||[],function(file){
-      if(!file.type||file.type.indexOf('video/')!==0){
-        status.textContent='Sirf video files select karo.';
+    function unlock(){
+      if(String(keyInput.value||'').trim().toUpperCase()!=='NEON18'){
+        status.textContent='Wrong key. NEON18 enter karo.';
+        keyInput.focus();
         return;
       }
-      var url=URL.createObjectURL(file);
-      objectUrls.push(url);
-      var card=document.createElement('article');
-      card.className='np-adult-video-card';
-      var title=document.createElement('p');
-      title.textContent=file.name;
-      var player=document.createElement('video');
-      player.controls=true;
-      player.preload='metadata';
-      player.src=url;
-      player.setAttribute('aria-label','Video preview: '+file.name);
-      card.appendChild(title);
-      card.appendChild(player);
-      videoList.appendChild(card);
-    });
-    if(videoList.children.length)status.textContent=videoList.children.length+' video(s) ready for local preview.';
-  });
-  lockBtn.addEventListener('click',function(){
-    clearVideos();
-    fileInput.value='';
-    panel.hidden=true;
-    keyInput.disabled=false;
-    openBtn.disabled=false;
-    status.textContent='Box locked.';
-  });
-  window.addEventListener('beforeunload',clearVideos);
+      panel.hidden=false;
+      keyInput.value='';
+      status.textContent='Box unlocked! Ab Choose video files dabao.';
+      keyInput.disabled=true;
+      openBtn.disabled=true;
+    }
+    openBtn.onclick=unlock;
+    keyInput.onkeydown=function(e){if(e.key==='Enter'){e.preventDefault();unlock();}};
+    lockBtn.onclick=function(){
+      clearVideos();fileInput.value='';panel.hidden=true;
+      keyInput.disabled=false;openBtn.disabled=false;status.textContent='Box locked.';
+    };
+    fileInput.onchange=function(){
+      clearVideos();
+      Array.prototype.forEach.call(fileInput.files||[],function(file){
+        if(!file.type||file.type.indexOf('video/')!==0)return;
+        var url=URL.createObjectURL(file);urls.push(url);
+        var card=document.createElement('article');card.className='np-adult-video-card';
+        var title=document.createElement('p');title.textContent=file.name;
+        var player=document.createElement('video');player.controls=true;player.preload='metadata';player.src=url;
+        card.appendChild(title);card.appendChild(player);videoList.appendChild(card);
+      });
+      status.textContent=videoList.children.length?videoList.children.length+' video(s) ready for local preview.':'Video file select karo.';
+    };
+    status.textContent='Ready. Key: NEON18';
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',initAdultBox);
+  else initAdultBox();
 })();
 </script>
 </body></html>
